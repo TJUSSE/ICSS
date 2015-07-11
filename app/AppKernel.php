@@ -1,7 +1,7 @@
 <?php
 
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\HttpKernel\Kernel;
 
 class AppKernel extends Kernel
 {
@@ -16,7 +16,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
+            new SSE\ICSSBundle\SSEICSSBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -31,6 +31,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }

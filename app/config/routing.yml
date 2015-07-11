@@ -1,3 +1,4 @@
-app:
-    resource: "@AppBundle/Controller/"
+sseicss:
+    resource: "@SSEICSSBundle/Controller/"
     type:     annotation
+    prefix:   /
