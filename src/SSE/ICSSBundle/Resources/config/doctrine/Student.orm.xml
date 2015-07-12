@@ -17,6 +17,9 @@
         <field name="enabled" type="boolean" column="enabled" nullable="true"/>
         <field name="valid" type="boolean" column="valid" nullable="true"/>
         <field name="role" type="string" column="role" length="64" nullable="true"/>
+        <many-to-one field="mentor" target-entity="Teacher">
+            <join-column name="mentor_teacher_id" referenced-column-name="id"/>
+        </many-to-one>
         <many-to-one field="project" target-entity="Project">
             <join-column name="project_id" referenced-column-name="id"/>
         </many-to-one>

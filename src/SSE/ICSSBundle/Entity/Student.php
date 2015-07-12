@@ -99,6 +99,16 @@ class Student
     private $id;
 
     /**
+     * @var \SSE\ICSSBundle\Entity\Teacher
+     *
+     * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Teacher")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="mentor_teacher_id", referencedColumnName="id")
+     * })
+     */
+    private $mentor;
+
+    /**
      * @var \SSE\ICSSBundle\Entity\Project
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Project")
@@ -391,6 +401,29 @@ class Student
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set mentor
+     *
+     * @param \SSE\ICSSBundle\Entity\Teacher $mentor
+     * @return Student
+     */
+    public function setMentor(\SSE\ICSSBundle\Entity\Teacher $mentor = null)
+    {
+        $this->mentor = $mentor;
+
+        return $this;
+    }
+
+    /**
+     * Get mentor
+     *
+     * @return \SSE\ICSSBundle\Entity\Teacher 
+     */
+    public function getMentor()
+    {
+        return $this->mentor;
     }
 
     /**
