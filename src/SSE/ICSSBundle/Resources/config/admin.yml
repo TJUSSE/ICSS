@@ -1,0 +1,44 @@
+services:
+    sse.icss.dashboard.recruit.company:
+        class: SSE\ICSSBundle\Admin\CompanyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "实习招聘管理", label: "招聘企业" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Company
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.recruit.intern_type:
+        class: SSE\ICSSBundle\Admin\InternTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "实习招聘管理", label: "实习性质" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\InternType
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.basic.project:
+        class: SSE\ICSSBundle\Admin\ProjectAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "基本信息管理", label: "学生学历" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Project
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.basic.direction:
+        class: SSE\ICSSBundle\Admin\DirectionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "基本信息管理", label: "专业方向" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Direction
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
