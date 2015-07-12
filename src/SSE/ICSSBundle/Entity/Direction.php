@@ -28,17 +28,6 @@ class Direction
      */
     private $id;
 
-    /**
-     * @var \SSE\ICSSBundle\Entity\Project
-     *
-     * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Project")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
-     * })
-     */
-    private $project;
-
-
 
     /**
      * Set name
@@ -56,7 +45,7 @@ class Direction
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -66,33 +55,10 @@ class Direction
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set project
-     *
-     * @param \SSE\ICSSBundle\Entity\Project $project
-     * @return Direction
-     */
-    public function setProject(\SSE\ICSSBundle\Entity\Project $project = null)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return \SSE\ICSSBundle\Entity\Project 
-     */
-    public function getProject()
-    {
-        return $this->project;
     }
 }

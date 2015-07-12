@@ -57,7 +57,6 @@ class Company
     private $id;
 
 
-
     /**
      * Set name
      *
@@ -74,7 +73,7 @@ class Company
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -97,7 +96,7 @@ class Company
     /**
      * Get intro
      *
-     * @return string 
+     * @return string
      */
     public function getIntro()
     {
@@ -120,7 +119,7 @@ class Company
     /**
      * Get updateAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdateAt()
     {
@@ -143,7 +142,7 @@ class Company
     /**
      * Get location
      *
-     * @return string 
+     * @return string
      */
     public function getLocation()
     {
@@ -166,7 +165,7 @@ class Company
     /**
      * Get hidden
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getHidden()
     {
@@ -176,7 +175,7 @@ class Company
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
