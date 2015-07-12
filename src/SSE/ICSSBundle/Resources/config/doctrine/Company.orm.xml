@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="SSE\ICSSBundle\Entity\Company" table="company">
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <field name="name" type="string" column="name" length="256" nullable="true"/>
+        <field name="intro" type="text" column="intro" nullable="true"/>
+        <field name="updateAt" type="datetime" column="update_at" nullable="true"/>
+        <field name="location" type="text" column="location" nullable="true"/>
+        <field name="hidden" type="boolean" column="hidden" nullable="true"/>
+    </entity>
+</doctrine-mapping>

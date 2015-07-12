@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="SSE\ICSSBundle\Entity\RecruitApply" table="recruit_apply">
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <field name="at" type="datetime" column="at" nullable="true"/>
+        <field name="description" type="text" column="description" nullable="true"/>
+        <field name="approved" type="boolean" column="approved" nullable="true"/>
+        <field name="canceled" type="boolean" column="canceled" nullable="true"/>
+        <one-to-many field="archives" target-entity="RecruitApplyArchive" mapped-by="apply"/>
+        <many-to-one field="recruit" target-entity="Recruit">
+            <join-column name="recruit_id" referenced-column-name="id"/>
+        </many-to-one>
+        <many-to-one field="student" target-entity="Student">
+            <join-column name="student_id" referenced-column-name="id"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

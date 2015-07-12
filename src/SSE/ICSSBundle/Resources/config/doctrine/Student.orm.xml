@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="SSE\ICSSBundle\Entity\Student" table="student">
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <field name="cardId" type="string" column="card_id" length="32" nullable="true"/>
+        <field name="name" type="string" column="name" length="64" nullable="true"/>
+        <field name="grade" type="integer" column="grade" nullable="true"/>
+        <field name="department" type="string" column="department" length="64" nullable="true"/>
+        <field name="major" type="string" column="major" length="64" nullable="true"/>
+        <field name="identity" type="string" column="identity" length="32" nullable="true"/>
+        <field name="email" type="string" column="email" length="64" nullable="true"/>
+        <field name="mobile" type="string" column="mobile" length="32" nullable="true"/>
+        <field name="enabled" type="boolean" column="enabled" nullable="true"/>
+        <field name="valid" type="boolean" column="valid" nullable="true"/>
+        <field name="role" type="string" column="role" length="64" nullable="true"/>
+        <many-to-one field="project" target-entity="Project">
+            <join-column name="project_id" referenced-column-name="id"/>
+        </many-to-one>
+        <many-to-one field="gender" target-entity="Gender">
+            <join-column name="gender" referenced-column-name="id"/>
+        </many-to-one>
+        <many-to-one field="direction" target-entity="Direction">
+            <join-column name="direction_id" referenced-column-name="id"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
