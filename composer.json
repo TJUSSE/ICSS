@@ -65,5 +65,14 @@
         "branch-alias": {
             "dev-master": "2.7-dev"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url":  "https://toran.reimu.io/repo/packagist/"
+        },
+        {
+            "packagist": false
+        }
+    ]
 }
