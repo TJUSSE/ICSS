@@ -1,0 +1,10 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% for stylesheet in sse_icss.assets.stylesheets %}
+        <link rel="stylesheet" href="{{ asset(stylesheet) }}">
+    {% endfor %}
+{% endblock %}
+{% block side_bar_after_nav %}
+    <p class="text-center small sse-console-system-link"><a href="{{ url('index') }}">SSE · 实习就业服务系统</a></p>
+{% endblock %}

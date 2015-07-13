@@ -36,6 +36,11 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        sse_icss:
+            assets:
+                stylesheets:
+                    - bundles/sseicss/css/console.css
 
 # Assetic Configuration
 assetic:
@@ -89,5 +94,8 @@ sonata_block:
         # Your other blocks
 
 sonata_admin:
+    title: 'SSE ICSS'
+    templates:
+        layout: SSEICSSBundle:Console:standard_layout.html.twig
     security:
         handler: sonata.admin.security.handler.role
