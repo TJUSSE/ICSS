@@ -68,7 +68,8 @@ class HybridUser implements UserInterface, EquatableInterface
             throw new UnsupportedUserException();
         }
 
-        $this->roles = [$entity->getRole()];
+        // 在数据库中用逗号分隔存储 roles
+        $this->roles = explode(',', $entity->getRoles());
         $this->id = $entity->getId();
         $this->entity = $entity;
     }

@@ -29,9 +29,9 @@ class BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="role", type="string", length=64, nullable=true)
+     * @ORM\Column(name="roles", type="text", nullable=false)
      */
-    private $role;
+    private $roles;
 
     /**
      * Set enabled
@@ -57,25 +57,25 @@ class BaseUser
     }
 
     /**
-     * Set role
+     * Set roles
      *
-     * @param string $role
+     * @param string $roles
      * @return User
      */
-    public function setRole($role)
+    public function setRoles($roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Get role
+     * Get roles
      *
      * @return string
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
     }
 }

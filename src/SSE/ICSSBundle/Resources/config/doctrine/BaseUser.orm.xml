@@ -4,6 +4,6 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <mapped-superclass name="SSE\ICSSBundle\Entity\BaseUser">
         <field name="enabled" type="boolean" column="enabled" nullable="true"/>
-        <field name="role" type="string" column="role" length="64" nullable="true"/>
+        <field name="roles" type="text" column="roles" nullable="false"/>
     </mapped-superclass>
 </doctrine-mapping>

@@ -102,6 +102,7 @@ class HybridAuthenticator implements SimplePreAuthenticatorInterface
                 'token' => $request->cookies->get('iPlanetDirectoryPro')
             ], $providerKey);
         } else {
+            // 匿名用户
             return;
         }
     }
