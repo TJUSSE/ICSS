@@ -1,5 +1,5 @@
 services:
-    sse.icss.dashboard.recruit.company:
+    sse.icss.dashboard.company:
         class: SSE\ICSSBundle\Admin\CompanyAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "实习招聘管理", label: "招聘企业" }
@@ -10,7 +10,7 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
-    sse.icss.dashboard.recruit.intern_type:
+    sse.icss.dashboard.interntype:
         class: SSE\ICSSBundle\Admin\InternTypeAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "实习招聘管理", label: "实习性质" }
@@ -21,7 +21,7 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
-    sse.icss.dashboard.basic.project:
+    sse.icss.dashboard.project:
         class: SSE\ICSSBundle\Admin\ProjectAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "基本信息管理", label: "学生学历" }
@@ -32,7 +32,7 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
-    sse.icss.dashboard.basic.direction:
+    sse.icss.dashboard.direction:
         class: SSE\ICSSBundle\Admin\DirectionAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "基本信息管理", label: "专业方向" }
