@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="teacher")
  * @ORM\Entity
  */
-class Teacher
+class Teacher extends BaseUser
 {
     /**
      * @var string
@@ -69,20 +69,6 @@ class Teacher
     private $mobile;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=true)
-     */
-    private $enabled;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=64, nullable=true)
-     */
-    private $role;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -102,7 +88,6 @@ class Teacher
     private $gender;
 
 
-
     /**
      * Set cardId
      *
@@ -119,7 +104,7 @@ class Teacher
     /**
      * Get cardId
      *
-     * @return string 
+     * @return string
      */
     public function getCardId()
     {
@@ -142,7 +127,7 @@ class Teacher
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -165,7 +150,7 @@ class Teacher
     /**
      * Get officeName
      *
-     * @return string 
+     * @return string
      */
     public function getOfficeName()
     {
@@ -188,7 +173,7 @@ class Teacher
     /**
      * Get department
      *
-     * @return string 
+     * @return string
      */
     public function getDepartment()
     {
@@ -211,7 +196,7 @@ class Teacher
     /**
      * Get office
      *
-     * @return string 
+     * @return string
      */
     public function getOffice()
     {
@@ -234,7 +219,7 @@ class Teacher
     /**
      * Get identity
      *
-     * @return string 
+     * @return string
      */
     public function getIdentity()
     {
@@ -257,7 +242,7 @@ class Teacher
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -280,7 +265,7 @@ class Teacher
     /**
      * Get mobile
      *
-     * @return string 
+     * @return string
      */
     public function getMobile()
     {
@@ -288,55 +273,9 @@ class Teacher
     }
 
     /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     * @return Teacher
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return boolean 
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * Set role
-     *
-     * @param string $role
-     * @return Teacher
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string 
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -359,7 +298,7 @@ class Teacher
     /**
      * Get gender
      *
-     * @return \SSE\ICSSBundle\Entity\Gender 
+     * @return \SSE\ICSSBundle\Entity\Gender
      */
     public function getGender()
     {

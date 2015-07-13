@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: zh_CN
+    SSEICSS.ssoApi: http://127.0.0.1:20212
 
 framework:
     #esi:             ~
@@ -86,3 +87,7 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
         # Your other blocks
+
+sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.role

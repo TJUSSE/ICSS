@@ -1,13 +1,18 @@
 security:
 
     providers:
-        in_memory:
-            memory: ~
+        sse_icss_hybrid_user_provider:
+            id: sse.icss.user_provider
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
-        main:
+        admin:
+            pattern: ~
             anonymous: ~
+            stateless: false
+            simple_preauth:
+                authenticator: sse.icss.authenticator
+            provider: sse_icss_hybrid_user_provider

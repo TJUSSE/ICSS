@@ -4,6 +4,18 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    sse.icss.ssoservice:
+        class: SSE\ICSSBundle\SSO\SSOService
+        arguments: [ %SSEICSS.ssoApi% ]
+
+    sse.icss.password_encoder:
+        class: SSE\ICSSBundle\Security\User\PasswordEncoder
+
+    sse.icss.user_provider:
+        class: SSE\ICSSBundle\Security\User\HybridUserProvider
+        arguments: [ @sse.icss.ssoservice, @doctrine.orm.entity_manager, @sse.icss.password_encoder ]
+
+    sse.icss.authenticator:
+        class: SSE\ICSSBundle\Security\User\HybridAuthenticator
+        arguments: [ @security.http_utils ]
+        public: false

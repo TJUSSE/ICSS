@@ -14,8 +14,6 @@
         <field name="identity" type="string" column="identity" length="32" nullable="true"/>
         <field name="email" type="string" column="email" length="64" nullable="true"/>
         <field name="mobile" type="string" column="mobile" length="32" nullable="true"/>
-        <field name="enabled" type="boolean" column="enabled" nullable="true"/>
-        <field name="role" type="string" column="role" length="64" nullable="true"/>
         <many-to-one field="gender" target-entity="Gender">
             <join-column name="gender" referenced-column-name="id"/>
         </many-to-one>

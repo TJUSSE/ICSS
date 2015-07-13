@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="student")
  * @ORM\Entity
  */
-class Student
+class Student extends BaseUser
 {
     /**
      * @var string
@@ -71,23 +71,9 @@ class Student
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enabled", type="boolean", nullable=true)
-     */
-    private $enabled;
-
-    /**
-     * @var boolean
-     *
      * @ORM\Column(name="valid", type="boolean", nullable=true)
      */
     private $valid;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=64, nullable=true)
-     */
-    private $role;
 
     /**
      * @var integer
@@ -139,7 +125,6 @@ class Student
     private $direction;
 
 
-
     /**
      * Set cardId
      *
@@ -156,7 +141,7 @@ class Student
     /**
      * Get cardId
      *
-     * @return string 
+     * @return string
      */
     public function getCardId()
     {
@@ -179,7 +164,7 @@ class Student
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -202,7 +187,7 @@ class Student
     /**
      * Get grade
      *
-     * @return integer 
+     * @return integer
      */
     public function getGrade()
     {
@@ -225,7 +210,7 @@ class Student
     /**
      * Get department
      *
-     * @return string 
+     * @return string
      */
     public function getDepartment()
     {
@@ -248,7 +233,7 @@ class Student
     /**
      * Get major
      *
-     * @return string 
+     * @return string
      */
     public function getMajor()
     {
@@ -271,7 +256,7 @@ class Student
     /**
      * Get identity
      *
-     * @return string 
+     * @return string
      */
     public function getIdentity()
     {
@@ -294,7 +279,7 @@ class Student
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -317,34 +302,11 @@ class Student
     /**
      * Get mobile
      *
-     * @return string 
+     * @return string
      */
     public function getMobile()
     {
         return $this->mobile;
-    }
-
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     * @return Student
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return boolean 
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
     }
 
     /**
@@ -363,7 +325,7 @@ class Student
     /**
      * Get valid
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getValid()
     {
@@ -371,32 +333,9 @@ class Student
     }
 
     /**
-     * Set role
-     *
-     * @param string $role
-     * @return Student
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string 
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -419,7 +358,7 @@ class Student
     /**
      * Get mentor
      *
-     * @return \SSE\ICSSBundle\Entity\Teacher 
+     * @return \SSE\ICSSBundle\Entity\Teacher
      */
     public function getMentor()
     {
@@ -442,7 +381,7 @@ class Student
     /**
      * Get project
      *
-     * @return \SSE\ICSSBundle\Entity\Project 
+     * @return \SSE\ICSSBundle\Entity\Project
      */
     public function getProject()
     {
@@ -465,7 +404,7 @@ class Student
     /**
      * Get gender
      *
-     * @return \SSE\ICSSBundle\Entity\Gender 
+     * @return \SSE\ICSSBundle\Entity\Gender
      */
     public function getGender()
     {
@@ -488,7 +427,7 @@ class Student
     /**
      * Get direction
      *
-     * @return \SSE\ICSSBundle\Entity\Direction 
+     * @return \SSE\ICSSBundle\Entity\Direction
      */
     public function getDirection()
     {
