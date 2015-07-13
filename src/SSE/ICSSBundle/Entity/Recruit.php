@@ -145,7 +145,7 @@ class Recruit
     /**
      * Get publishAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPublishAt()
     {
@@ -168,7 +168,7 @@ class Recruit
     /**
      * Get ended
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEnded()
     {
@@ -191,7 +191,7 @@ class Recruit
     /**
      * Get intro
      *
-     * @return string 
+     * @return string
      */
     public function getIntro()
     {
@@ -214,7 +214,7 @@ class Recruit
     /**
      * Get hidden
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getHidden()
     {
@@ -237,7 +237,7 @@ class Recruit
     /**
      * Get applyLimit
      *
-     * @return integer 
+     * @return integer
      */
     public function getApplyLimit()
     {
@@ -260,7 +260,7 @@ class Recruit
     /**
      * Get visitCount
      *
-     * @return integer 
+     * @return integer
      */
     public function getVisitCount()
     {
@@ -270,7 +270,7 @@ class Recruit
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -293,7 +293,7 @@ class Recruit
     /**
      * Get company
      *
-     * @return \SSE\ICSSBundle\Entity\Company 
+     * @return \SSE\ICSSBundle\Entity\Company
      */
     public function getCompany()
     {
@@ -326,7 +326,7 @@ class Recruit
     /**
      * Get types
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTypes()
     {
@@ -359,7 +359,7 @@ class Recruit
     /**
      * Get suitableInternTypes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSuitableInternTypes()
     {
@@ -392,7 +392,7 @@ class Recruit
     /**
      * Get suitableProjects
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSuitableProjects()
     {

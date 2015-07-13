@@ -91,7 +91,7 @@ class InternType
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -114,7 +114,7 @@ class InternType
     /**
      * Get approve
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getApprove()
     {
@@ -124,7 +124,7 @@ class InternType
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -157,7 +157,7 @@ class InternType
     /**
      * Get availableArchives
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAvailableArchives()
     {
@@ -190,7 +190,7 @@ class InternType
     /**
      * Get suitableProjects
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSuitableProjects()
     {

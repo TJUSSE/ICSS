@@ -49,7 +49,6 @@ class RecruitVisit
     private $student;
 
 
-
     /**
      * Set visitAt
      *
@@ -66,7 +65,7 @@ class RecruitVisit
     /**
      * Get visitAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getVisitAt()
     {
@@ -76,7 +75,7 @@ class RecruitVisit
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -99,7 +98,7 @@ class RecruitVisit
     /**
      * Get recruit
      *
-     * @return \SSE\ICSSBundle\Entity\Recruit 
+     * @return \SSE\ICSSBundle\Entity\Recruit
      */
     public function getRecruit()
     {
@@ -122,7 +121,7 @@ class RecruitVisit
     /**
      * Get student
      *
-     * @return \SSE\ICSSBundle\Entity\Student 
+     * @return \SSE\ICSSBundle\Entity\Student
      */
     public function getStudent()
     {

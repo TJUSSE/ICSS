@@ -56,7 +56,6 @@ class RecruitApplyArchive
     private $archive;
 
 
-
     /**
      * Set at
      *
@@ -73,7 +72,7 @@ class RecruitApplyArchive
     /**
      * Get at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getAt()
     {
@@ -96,7 +95,7 @@ class RecruitApplyArchive
     /**
      * Get file
      *
-     * @return string 
+     * @return string
      */
     public function getFile()
     {
@@ -106,7 +105,7 @@ class RecruitApplyArchive
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -129,7 +128,7 @@ class RecruitApplyArchive
     /**
      * Get apply
      *
-     * @return \SSE\ICSSBundle\Entity\RecruitApply 
+     * @return \SSE\ICSSBundle\Entity\RecruitApply
      */
     public function getApply()
     {
@@ -152,7 +151,7 @@ class RecruitApplyArchive
     /**
      * Get archive
      *
-     * @return \SSE\ICSSBundle\Entity\InternArchive 
+     * @return \SSE\ICSSBundle\Entity\InternArchive
      */
     public function getArchive()
     {

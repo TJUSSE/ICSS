@@ -74,7 +74,7 @@ class InternArchive
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -97,7 +97,7 @@ class InternArchive
     /**
      * Get withApply
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getWithApply()
     {
@@ -120,7 +120,7 @@ class InternArchive
     /**
      * Get afterApprove
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getAfterApprove()
     {
@@ -130,7 +130,7 @@ class InternArchive
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -163,7 +163,7 @@ class InternArchive
     /**
      * Get suitableInternTypes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSuitableInternTypes()
     {

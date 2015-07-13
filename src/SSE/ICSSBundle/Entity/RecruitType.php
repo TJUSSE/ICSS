@@ -29,7 +29,6 @@ class RecruitType
     private $id;
 
 
-
     /**
      * Set name
      *
@@ -46,7 +45,7 @@ class RecruitType
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -56,7 +55,7 @@ class RecruitType
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {

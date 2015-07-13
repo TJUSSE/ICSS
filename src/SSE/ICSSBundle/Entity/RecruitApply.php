@@ -101,7 +101,7 @@ class RecruitApply
     /**
      * Get at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getAt()
     {
@@ -124,7 +124,7 @@ class RecruitApply
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -147,7 +147,7 @@ class RecruitApply
     /**
      * Get approved
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getApproved()
     {
@@ -170,7 +170,7 @@ class RecruitApply
     /**
      * Get canceled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCanceled()
     {
@@ -180,7 +180,7 @@ class RecruitApply
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -213,7 +213,7 @@ class RecruitApply
     /**
      * Get archives
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getArchives()
     {
@@ -236,7 +236,7 @@ class RecruitApply
     /**
      * Get recruit
      *
-     * @return \SSE\ICSSBundle\Entity\Recruit 
+     * @return \SSE\ICSSBundle\Entity\Recruit
      */
     public function getRecruit()
     {
@@ -259,7 +259,7 @@ class RecruitApply
     /**
      * Get student
      *
-     * @return \SSE\ICSSBundle\Entity\Student 
+     * @return \SSE\ICSSBundle\Entity\Student
      */
     public function getStudent()
     {
