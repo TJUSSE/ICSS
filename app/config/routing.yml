@@ -3,12 +3,11 @@ sseicss:
     type:     annotation
     prefix:   /
 
-# app/config/routing.yml
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
+    prefix: /console
 
 _sonata_admin:
     resource: .
     type: sonata_admin
-    prefix: /admin
+    prefix: /console
