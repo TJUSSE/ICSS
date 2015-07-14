@@ -9,7 +9,7 @@ teacher_info: 教师信息
 
 Student List: 学生列表
 student.cardid: 学号
-Name: 姓名
+people.name: 姓名
 Gender: 性别
 Grade: 年级
 Department: 学院
@@ -23,6 +23,7 @@ Project Name: 学历
 Gender Name: 性别
 Direction Name: 方向
 
+Name: 名称
 Teacher List: 教师列表
 teacher.cardid: 工号
 teacher.department: 行政部门

@@ -36,11 +36,6 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    globals:
-        sse_icss:
-            assets:
-                stylesheets:
-                    - bundles/sseicss/css/console.css
 
 # Assetic Configuration
 assetic:
@@ -94,8 +89,61 @@ sonata_block:
         # Your other blocks
 
 sonata_admin:
-    title: 'SSE ICSS'
+    title: '实习就业服务中心'
     templates:
         layout: SSEICSSBundle:Console:standard_layout.html.twig
+        list: SSEICSSBundle:Console:list.html.twig
+        edit: SSEICSSBundle:Console:edit.html.twig
     security:
         handler: sonata.admin.security.handler.role
+    assets:
+        stylesheets:
+            - bundles/sseicss/vendor/bootstrap/css/bootstrap.min.css
+            - bundles/sseicss/vendor/font-awesome-4.3.0/css/font-awesome.min.css
+            #- bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css
+            #- bundles/sonataadmin/vendor/AdminLTE/css/ionicons.min.css
+            - bundles/sseicss/vendor/AdminLTE/css/AdminLTE.min.css
+            - bundles/sseicss/vendor/AdminLTE/css/skins/skin-green.min.css
+
+            #- bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+            #- bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
+
+            - bundles/sonataadmin/vendor/select2/select2.css
+            - bundles/sonataadmin/vendor/select2/select2-bootstrap.css
+            #- bundles/sseicss/vendor/select2/select2.min.css
+
+            - bundles/sseicss/vendor/icheck/square/green.css
+
+            #- bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
+
+            #- bundles/sonataadmin/css/styles.css
+            - bundles/sonataadmin/css/layout.css
+            - bundles/sseicss/css/console.css
+        javascripts:
+            - bundles/sonataadmin/vendor/jquery/dist/jquery.min.js
+            - bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js
+
+            - bundles/sonatacore/vendor/moment/min/moment.min.js
+
+            - bundles/sonataadmin/vendor/bootstrap/dist/js/bootstrap.min.js
+
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js
+
+            - bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js
+            - bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js
+
+            - bundles/sonataadmin/jquery/jquery.form.js
+            - bundles/sonataadmin/jquery/jquery.confirmExit.js
+
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js
+
+            - bundles/sonataadmin/vendor/select2/select2.min.js
+            #- bundles/sseicss/vendor/select2/select2.min.js
+
+            - bundles/sseicss/vendor/iCheck/icheck.min.js
+
+            #- bundles/sonataadmin/App.js
+            - bundles/sseicss/vendor/slimScroll/jquery.slimscroll.min.js
+            - bundles/sseicss/vendor/AdminLTE/js/app.min.js
+            - bundles/sonataadmin/Admin.js
+            - bundles/sseicss/js/Admin.js
