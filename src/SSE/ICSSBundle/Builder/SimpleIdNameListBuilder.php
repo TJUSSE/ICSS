@@ -17,7 +17,7 @@ class SimpleIdNameListBuilder
     public function getList()
     {
         $items = $this->repo->findAll();
-        $ret = array();
+        $ret = [];
         foreach ($items as $item) {
             $ret[$item->getId()] = $item->getName();
         }

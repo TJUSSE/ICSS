@@ -3,7 +3,9 @@ intern_type: 实习性质
 param_project: 学历
 param_direction: 方向
 param_gender: 性别
+
 student_info: 个人信息
+teacher_info: 教师信息
 
 Student List: 学生列表
 student.cardid: 学号
@@ -20,3 +22,9 @@ Direction: 方向
 Project Name: 学历
 Gender Name: 性别
 Direction Name: 方向
+
+Teacher List: 教师列表
+teacher.cardid: 工号
+teacher.department: 行政部门
+Officename: 教研室
+Office: 办公室

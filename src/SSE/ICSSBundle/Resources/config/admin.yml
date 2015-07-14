@@ -68,3 +68,14 @@ services:
             - [ setGradeListBuilder, [ @sse_icss.builder.grade_list_builder ] ]
             - [ setDirectionListBuilder, [ @sse_icss.builder.direction_list_builder ] ]
             - [ setGenderListBuilder, [ @sse_icss.builder.gender_list_builder ] ]
+
+    sse.icss.dashboard.teacher:
+        class: SSE\ICSSBundle\Admin\TeacherAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "user_management", label: "teacher_info" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Teacher
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
