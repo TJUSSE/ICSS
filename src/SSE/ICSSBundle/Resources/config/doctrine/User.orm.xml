@@ -6,7 +6,7 @@
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="username" type="string" column="username" length="64" nullable="true"/>
+        <field name="username" type="string" column="username" length="64" unique="true" nullable="true"/>
         <field name="password" type="string" column="password" length="128" nullable="true"/>
         <field name="salt" type="string" column="salt" length="128" nullable="true"/>
     </entity>

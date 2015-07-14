@@ -6,7 +6,7 @@
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="cardId" type="string" column="card_id" length="32" nullable="true"/>
+        <field name="cardId" type="string" column="card_id" length="32" unique="true" nullable="true"/>
         <field name="name" type="string" column="name" length="64" nullable="true"/>
         <field name="grade" type="integer" column="grade" nullable="true"/>
         <field name="department" type="string" column="department" length="64" nullable="true"/>
@@ -22,7 +22,7 @@
             <join-column name="project_id" referenced-column-name="id"/>
         </many-to-one>
         <many-to-one field="gender" target-entity="Gender">
-            <join-column name="gender" referenced-column-name="id"/>
+            <join-column name="gender_id" referenced-column-name="id"/>
         </many-to-one>
         <many-to-one field="direction" target-entity="Direction">
             <join-column name="direction_id" referenced-column-name="id"/>

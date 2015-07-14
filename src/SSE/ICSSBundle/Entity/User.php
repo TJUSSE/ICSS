@@ -15,7 +15,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=64, nullable=true)
+     * @ORM\Column(name="username", type="string", length=64, unique=true, nullable=true)
      */
     private $username;
 

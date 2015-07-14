@@ -2,7 +2,7 @@ services:
     sse.icss.dashboard.company:
         class: SSE\ICSSBundle\Admin\CompanyAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "实习招聘管理", label: "招聘企业" }
+            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_compnay" }
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\Company
@@ -13,7 +13,7 @@ services:
     sse.icss.dashboard.interntype:
         class: SSE\ICSSBundle\Admin\InternTypeAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "实习招聘管理", label: "实习性质" }
+            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "intern_type" }
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\InternType
@@ -24,7 +24,7 @@ services:
     sse.icss.dashboard.project:
         class: SSE\ICSSBundle\Admin\ProjectAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "基本信息管理", label: "学生学历" }
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "param_project" }
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\Project
@@ -35,10 +35,36 @@ services:
     sse.icss.dashboard.direction:
         class: SSE\ICSSBundle\Admin\DirectionAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "基本信息管理", label: "专业方向" }
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "param_direction" }
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\Direction
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.gender:
+        class: SSE\ICSSBundle\Admin\GenderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "param_gender" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Gender
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.student:
+        class: SSE\ICSSBundle\Admin\StudentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "student_management", label: "student_info" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Student
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+            - [ setProjectListBuilder, [ @sse_icss.builder.project_list_builder ] ]
+            - [ setGradeListBuilder, [ @sse_icss.builder.grade_list_builder ] ]
+            - [ setDirectionListBuilder, [ @sse_icss.builder.direction_list_builder ] ]
+            - [ setGenderListBuilder, [ @sse_icss.builder.gender_list_builder ] ]

@@ -15,7 +15,7 @@ class Teacher extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="card_id", type="string", length=32, nullable=true)
+     * @ORM\Column(name="card_id", type="string", length=32, unique=true, nullable=true)
      */
     private $cardId;
 
@@ -82,11 +82,15 @@ class Teacher extends BaseUser
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Gender")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="gender", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
      * })
      */
     private $gender;
 
+    public function __construct()
+    {
+        $this->setRoles('ROLE_TEACHER');
+    }
 
     /**
      * Set cardId

@@ -1,0 +1,22 @@
+recruit_compnay: 招聘企业
+intern_type: 实习性质
+param_project: 学历
+param_direction: 方向
+param_gender: 性别
+student_info: 个人信息
+
+Student List: 学生列表
+student.cardid: 学号
+Name: 姓名
+Gender: 性别
+Grade: 年级
+Department: 学院
+Major: 专业
+Identity: 身份证号
+Email: Email
+Mobile: 手机号
+Project: 学历
+Direction: 方向
+Project Name: 学历
+Gender Name: 性别
+Direction Name: 方向

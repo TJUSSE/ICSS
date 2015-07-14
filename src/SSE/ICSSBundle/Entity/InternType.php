@@ -15,7 +15,7 @@ class InternType
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=64, nullable=true)
+     * @ORM\Column(name="name", type="string", length=64, unique=true, nullable=true)
      */
     private $name;
 
@@ -38,7 +38,7 @@ class InternType
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\InternArchive")
+     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\InternArchive", inverseBy="availableInternTypes")
      * @ORM\JoinTable(name="intern_types_archives",
      *   joinColumns={
      *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id")

@@ -15,7 +15,7 @@ class Gender
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=32, nullable=true)
+     * @ORM\Column(name="name", type="string", length=32, unique=true, nullable=true)
      */
     private $name;
 

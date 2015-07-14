@@ -15,7 +15,7 @@ class RecruitType
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=128, nullable=true)
+     * @ORM\Column(name="name", type="string", length=128, unique=true, nullable=true)
      */
     private $name;
 

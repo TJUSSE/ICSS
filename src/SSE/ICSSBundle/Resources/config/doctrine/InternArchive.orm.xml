@@ -6,8 +6,8 @@
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="name" type="string" column="name" length="64" nullable="true"/>
-        <field name="withApply" type="boolean" column="with_apply" nullable="true"/>
+        <field name="name" type="string" column="name" length="64" unique="true" nullable="true"/>
+        <field name="afterApply" type="boolean" column="after_apply" nullable="true"/>
         <field name="afterApprove" type="boolean" column="after_approve" nullable="true"/>
         <many-to-many field="suitableInternTypes" mapped-by="availableArchives" target-entity="InternType"/>
     </entity>

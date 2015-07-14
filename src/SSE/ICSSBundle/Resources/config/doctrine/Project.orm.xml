@@ -6,7 +6,7 @@
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="name" type="string" column="name" length="64" nullable="true"/>
+        <field name="name" type="string" column="name" length="64" unique="true" nullable="true"/>
         <many-to-many field="availableInternTypes" mapped-by="suitableProjects" target-entity="InternType"/>
     </entity>
 </doctrine-mapping>

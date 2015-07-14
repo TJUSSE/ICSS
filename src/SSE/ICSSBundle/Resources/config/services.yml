@@ -19,3 +19,19 @@ services:
         class: SSE\ICSSBundle\Security\User\HybridAuthenticator
         arguments: [ @security.http_utils ]
         public: false
+
+    sse_icss.builder.project_list_builder:
+        class: SSE\ICSSBundle\Builder\ProjectListBuilder
+        arguments: [ @doctrine.orm.entity_manager ]
+
+    sse_icss.builder.direction_list_builder:
+        class: SSE\ICSSBundle\Builder\DirectionListBuilder
+        arguments: [ @doctrine.orm.entity_manager ]
+
+    sse_icss.builder.gender_list_builder:
+        class: SSE\ICSSBundle\Builder\GenderListBuilder
+        arguments: [ @doctrine.orm.entity_manager ]
+
+    sse_icss.builder.grade_list_builder:
+        class: SSE\ICSSBundle\Builder\GradeListBuilder
+        arguments: [ @doctrine.orm.entity_manager ]

@@ -15,16 +15,16 @@ class InternArchive
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=64, nullable=true)
+     * @ORM\Column(name="name", type="string", length=64, unique=true, nullable=true)
      */
     private $name;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="with_apply", type="boolean", nullable=true)
+     * @ORM\Column(name="after_apply", type="boolean", nullable=true)
      */
-    private $withApply;
+    private $afterApply;
 
     /**
      * @var boolean
@@ -82,26 +82,26 @@ class InternArchive
     }
 
     /**
-     * Set withApply
+     * Set afterApply
      *
-     * @param boolean $withApply
+     * @param boolean $afterApply
      * @return InternArchive
      */
-    public function setWithApply($withApply)
+    public function setAfterApply($afterApply)
     {
-        $this->withApply = $withApply;
+        $this->afterApply = $afterApply;
 
         return $this;
     }
 
     /**
-     * Get withApply
+     * Get afterApply
      *
      * @return boolean
      */
-    public function getWithApply()
+    public function getAfterApply()
     {
-        return $this->withApply;
+        return $this->afterApply;
     }
 
     /**
