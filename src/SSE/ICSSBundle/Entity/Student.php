@@ -439,4 +439,9 @@ class Student extends BaseUser
     {
         return $this->direction;
     }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '学生';
+    }
 }

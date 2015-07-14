@@ -308,4 +308,9 @@ class Teacher extends BaseUser
     {
         return $this->gender;
     }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '老师';
+    }
 }

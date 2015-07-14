@@ -109,4 +109,9 @@ class Project
     {
         return $this->availableInternTypes;
     }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '学历';
+    }
 }

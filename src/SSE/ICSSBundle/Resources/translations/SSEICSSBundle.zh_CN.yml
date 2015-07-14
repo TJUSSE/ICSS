@@ -7,7 +7,15 @@ param_gender: 性别
 student_info: 个人信息
 teacher_info: 教师信息
 
+Company List: 企业列表
+Intern Type List: 实习性质列表
+Project List: 学历列表
+Direction List: 方向列表
 Student List: 学生列表
+Teacher List: 教师列表
+
+Name: 名称
+
 student.cardid: 学号
 people.name: 姓名
 Gender: 性别
@@ -23,8 +31,6 @@ Project Name: 学历
 Gender Name: 性别
 Direction Name: 方向
 
-Name: 名称
-Teacher List: 教师列表
 teacher.cardid: 工号
 teacher.department: 行政部门
 Officename: 教研室

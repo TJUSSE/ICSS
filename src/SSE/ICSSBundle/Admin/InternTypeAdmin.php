@@ -15,7 +15,11 @@ class InternTypeAdmin extends Admin
         $formMapper
             ->add('name', 'text', ['label' => '实习性质名称'])
             ->add('approve', 'checkbox', ['label' => '自动审批通过', 'required' => false])
-            ->add('suitableProjects', 'sonata_type_model', ['required' => false, 'label' => '适用专业', 'multiple' => true, 'property' => 'name', 'expanded' => true]);
+            ->add(
+                'suitableProjects',
+                'sonata_type_model',
+                ['required' => false, 'label' => '适用专业', 'multiple' => true, 'property' => 'name', 'expanded' => true]
+            );
     }
 
     // Fields to be shown on filter forms

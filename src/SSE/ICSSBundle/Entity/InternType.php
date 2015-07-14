@@ -196,4 +196,9 @@ class InternType
     {
         return $this->suitableProjects;
     }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '实习性质';
+    }
 }

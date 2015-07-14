@@ -17,7 +17,7 @@ class TeacherAdmin extends Admin
             ->with('基本信息')
             ->add('cardId', 'text', ['label' => 'teacher.cardid'])
             ->add('gender', 'sonata_type_model', ['property' => 'name', 'btn_add' => false])
-            ->add('name', 'text')
+            ->add('name', 'text', ['label' => 'people.name'])
             ->add('officename', 'text', ['required' => false])
             ->add('department', 'text', ['label' => 'teacher.department', 'required' => false])
             ->add('office', 'text', ['required' => false])
@@ -33,7 +33,7 @@ class TeacherAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name', null)
+            ->add('name', null, ['label' => 'people.name'])
             ->add('cardId', null, ['label' => 'teacher.cardid']);
     }
 
@@ -42,7 +42,7 @@ class TeacherAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('cardId', 'text', ['label' => 'teacher.cardid'])
-            ->addIdentifier('name', 'text')
+            ->addIdentifier('name', 'text', ['label' => 'people.name'])
             ->add('gender', 'many_to_one', ['associated_property' => 'name'])
             ->add('officename', 'text')
             ->add('department', 'text', ['label' => 'teacher.department']);

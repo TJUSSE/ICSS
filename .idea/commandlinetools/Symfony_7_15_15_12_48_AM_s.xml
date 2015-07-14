@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.3.xsd" frameworkId="com.symfony" name="Symfony_7/11/15 9:04 AM_s" invoke="/usr/local/bin/php /Users/Breezewish/Development/SSEWeb/ICSS/app/console" alias="s" enabled="true" version="2">
+<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.3.xsd" frameworkId="com.symfony" name="Symfony_7/15/15 12:48 AM_s" invoke="/usr/local/bin/php /Users/Breezewish/Development/SSEWeb/ICSS/app/console" alias="s" enabled="true" version="2">
   <command>
     <name>help</name>
     <help><![CDATA[The <b>help</b> command displays help for a given command:<br> <br> <b>php /Users/Breezewish/Development/SSEWeb/ICSS/app/console help list</b><br> <br> You can also output the help in other formats by using the <comment>--format</comment> option:<br> <br> <b>php /Users/Breezewish/Development/SSEWeb/ICSS/app/console help --format=xml list</b><br> <br> To display the list of available commands, please use the <b>list</b> command.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--xml</td><td></td><td>To output help as XML</td></tr> <tr><td>--format</td><td></td><td>The output format (txt, xml, json, or md)</td></tr> <tr><td>--raw</td><td></td><td>To output raw command help</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
@@ -219,6 +219,45 @@
       <option name="--no-optional-warmers" shortcut="">
         <help><![CDATA[Skip optional cache warmers (faster)]]></help>
       </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>cache:create-cache-class</name>
+    <help><![CDATA[Generate the classes.php files<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
       <option name="--help" shortcut="-h">
         <help><![CDATA[Display this help message]]></help>
       </option>
@@ -2161,6 +2200,320 @@
     </optionsBefore>
   </command>
   <command>
+    <name>sonata:admin:explain</name>
+    <help><![CDATA[Explain an admin service<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>admin</params>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>sonata:admin:generate</name>
+    <help><![CDATA[Generates an admin class based on the given model class<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--bundle</td><td>(-b)</td><td>The bundle name</td></tr> <tr><td>--admin</td><td>(-a)</td><td>The admin class basename</td></tr> <tr><td>--controller</td><td>(-c)</td><td>The controller class basename</td></tr> <tr><td>--manager</td><td>(-m)</td><td>The model manager type</td></tr> <tr><td>--services</td><td>(-y)</td><td>The services YAML file</td></tr> <tr><td>--id</td><td>(-i)</td><td>The admin service ID</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>model</params>
+    <optionsBefore>
+      <option name="--bundle" shortcut="-b" pattern="equals">
+        <help><![CDATA[The bundle name]]></help>
+      </option>
+      <option name="--admin" shortcut="-a" pattern="equals">
+        <help><![CDATA[The admin class basename]]></help>
+      </option>
+      <option name="--controller" shortcut="-c" pattern="equals">
+        <help><![CDATA[The controller class basename]]></help>
+      </option>
+      <option name="--manager" shortcut="-m" pattern="equals">
+        <help><![CDATA[The model manager type]]></help>
+      </option>
+      <option name="--services" shortcut="-y" pattern="equals">
+        <help><![CDATA[The services YAML file]]></help>
+      </option>
+      <option name="--id" shortcut="-i" pattern="equals">
+        <help><![CDATA[The admin service ID]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>sonata:admin:generate-object-acl</name>
+    <help><![CDATA[Install ACL for the objects of the Admin Classes.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--object_owner</td><td></td><td>If set, the task will set the object owner for each admin.</td></tr> <tr><td>--user_entity</td><td></td><td>Shortcut notation like <comment>AcmeDemoBundle:User</comment>. If not set, it will be asked the first time an object owner is set.</td></tr> <tr><td>--step</td><td></td><td>If set, the task will ask for each admin if the ACLs need to be generated and what object owner to set, if any.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--object_owner" shortcut="" pattern="equals">
+        <help><![CDATA[If set, the task will set the object owner for each admin.]]></help>
+      </option>
+      <option name="--user_entity" shortcut="" pattern="equals">
+        <help><![CDATA[Shortcut notation like <comment>AcmeDemoBundle:User</comment>. If not set, it will be asked the first time an object owner is set.]]></help>
+      </option>
+      <option name="--step" shortcut="">
+        <help><![CDATA[If set, the task will ask for each admin if the ACLs need to be generated and what object owner to set, if any.]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>sonata:admin:list</name>
+    <help><![CDATA[List all admin services available<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>sonata:admin:setup-acl</name>
+    <help><![CDATA[Install ACL for Admin Classes<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>sonata:block:debug</name>
+    <help><![CDATA[Debug all blocks available, show default settings of each block<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--context</td><td>(-c)</td><td>display service for the specified context</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--context" shortcut="-c" pattern="equals">
+        <help><![CDATA[display service for the specified context]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>sonata:core:dump-doctrine-metadata</name>
+    <help><![CDATA[Get information on the current Doctrine's schema<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--entity-name</td><td>(-E)</td><td>If entity-name is set, dump will only contain the specified entity and all its extended classes.</td></tr> <tr><td>--regex</td><td>(-r)</td><td>If regex is set, dump will only contain entities which name match the pattern.</td></tr> <tr><td>--filename</td><td>(-f)</td><td>If filename is specified, result will be dumped into this file under json format.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--entity-name" shortcut="-E" pattern="equals">
+        <help><![CDATA[If entity-name is set, dump will only contain the specified entity and all its extended classes.]]></help>
+      </option>
+      <option name="--regex" shortcut="-r" pattern="equals">
+        <help><![CDATA[If regex is set, dump will only contain entities which name match the pattern.]]></help>
+      </option>
+      <option name="--filename" shortcut="-f" pattern="equals">
+        <help><![CDATA[If filename is specified, result will be dumped into this file under json format.]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--shell" shortcut="-s">
+        <help><![CDATA[Launch the shell.]]></help>
+      </option>
+      <option name="--process-isolation" shortcut="">
+        <help><![CDATA[Launch commands from shell as a separate process.]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
     <name>swiftmailer:email:send</name>
     <help><![CDATA[The <b>swiftmailer:email:send</b> command creates and send simple email message.<br> <br> <b>php /Users/Breezewish/Development/SSEWeb/ICSS/app/console swiftmailer:email:send --mailer=custom_mailer --content-type=text/xml</b><br> <br> You can get body of message from file:<br> <b>php /Users/Breezewish/Development/SSEWeb/ICSS/app/console swiftmailer:email:send --body-source=file --body=/path/to/file</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--from</td><td></td><td>The from address of the message</td></tr> <tr><td>--to</td><td></td><td>The to address of the message</td></tr> <tr><td>--subject</td><td></td><td>The subject of the message</td></tr> <tr><td>--body</td><td></td><td>The body of the message</td></tr> <tr><td>--mailer</td><td></td><td>The mailer name</td></tr> <tr><td>--content-type</td><td></td><td>The body content type of the message</td></tr> <tr><td>--charset</td><td></td><td>The body charset of the message</td></tr> <tr><td>--body-source</td><td></td><td>The source where body come from [stdin|file]</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
     <optionsBefore>
@@ -2332,6 +2685,6 @@
       </option>
     </optionsBefore>
   </command>
-  <help><![CDATA[<p>Usage:<br> [options] command [arguments] </p><br> <table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> </table> <br/> <table> <tr><td><strong>Available commands:</strong></td></tr> <tr><td>help</td><td>Displays help for a command</td></tr> <tr><td>list</td><td>Lists commands</td></tr> <tr><td>assetic:dump</td><td>Dumps all assets to the filesystem</td></tr> <tr><td>assetic:watch</td><td>Dumps assets to the filesystem as their source files are modified</td></tr> <tr><td>assets:install</td><td>Installs bundles web assets under a public web directory</td></tr> <tr><td>cache:clear</td><td>Clears the cache</td></tr> <tr><td>cache:warmup</td><td>Warms up an empty cache</td></tr> <tr><td>config:dump-reference</td><td>Dumps the default configuration for an extension</td></tr> <tr><td>debug:config</td><td>Dumps the current configuration for an extension</td></tr> <tr><td>debug:container</td><td>Displays current services for an application</td></tr> <tr><td>debug:event-dispatcher</td><td>Displays configured listeners for an application</td></tr> <tr><td>debug:router</td><td>Displays current routes for an application</td></tr> <tr><td>debug:swiftmailer</td><td>Displays current mailers for an application</td></tr> <tr><td>debug:translation</td><td>Displays translation messages information</td></tr> <tr><td>debug:twig</td><td>Shows a list of twig functions, filters, globals and tests</td></tr> <tr><td>doctrine:cache:clear-metadata</td><td>Clears all metadata cache for an entity manager</td></tr> <tr><td>doctrine:cache:clear-query</td><td>Clears all query cache for an entity manager</td></tr> <tr><td>doctrine:cache:clear-result</td><td>Clears result cache for an entity manager</td></tr> <tr><td>doctrine:database:create</td><td>Creates the configured database</td></tr> <tr><td>doctrine:database:drop</td><td>Drops the configured database</td></tr> <tr><td>doctrine:ensure-production-settings</td><td>Verify that Doctrine is properly configured for a production environment.</td></tr> <tr><td>doctrine:generate:crud</td><td>Generates a CRUD based on a Doctrine entity</td></tr> <tr><td>doctrine:generate:entities</td><td>Generates entity classes and method stubs from your mapping information</td></tr> <tr><td>doctrine:generate:entity</td><td>Generates a new Doctrine entity inside a bundle</td></tr> <tr><td>doctrine:generate:form</td><td>Generates a form type class based on a Doctrine entity</td></tr> <tr><td>doctrine:mapping:convert</td><td>Convert mapping information between supported formats.</td></tr> <tr><td>doctrine:mapping:import</td><td>Imports mapping information from an existing database</td></tr> <tr><td>doctrine:mapping:info</td><td></td></tr> <tr><td>doctrine:query:dql</td><td>Executes arbitrary DQL directly from the command line.</td></tr> <tr><td>doctrine:query:sql</td><td>Executes arbitrary SQL directly from the command line.</td></tr> <tr><td>doctrine:schema:create</td><td>Executes (or dumps) the SQL needed to generate the database schema</td></tr> <tr><td>doctrine:schema:drop</td><td>Executes (or dumps) the SQL needed to drop the current database schema</td></tr> <tr><td>doctrine:schema:update</td><td>Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata.</td></tr> <tr><td>doctrine:schema:validate</td><td>Validate the mapping files.</td></tr> <tr><td>generate:bundle</td><td>Generates a bundle</td></tr> <tr><td>generate:controller</td><td>Generates a controller</td></tr> <tr><td>init:acl</td><td>Mounts ACL tables in the database</td></tr> <tr><td>lint:twig</td><td>Lints a template and outputs encountered errors</td></tr> <tr><td>lint:yaml</td><td>Lints a file and outputs encountered errors</td></tr> <tr><td>router:dump-apache</td><td>[DEPRECATED] Dumps all routes as Apache rewrite rules</td></tr> <tr><td>router:match</td><td>Helps debug routes by simulating a path info match</td></tr> <tr><td>security:check</td><td>Checks security issues in your project dependencies</td></tr> <tr><td>security:encode-password</td><td>Encodes a password.</td></tr> <tr><td>server:run</td><td>Runs PHP built-in web server</td></tr> <tr><td>server:start</td><td>Starts PHP built-in web server in the background</td></tr> <tr><td>server:status</td><td>Outputs the status of the built-in web server for the given address</td></tr> <tr><td>server:stop</td><td>Stops PHP's built-in web server that was started with the server:start command</td></tr> <tr><td>swiftmailer:email:send</td><td>Send simple email message</td></tr> <tr><td>swiftmailer:spool:send</td><td>Sends emails from the spool</td></tr> <tr><td>translation:update</td><td>Updates the translation file</td></tr> </table> <br/>]]></help>
+  <help><![CDATA[<p>Usage:<br> [options] command [arguments] </p><br> <table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--process-isolation</td><td></td><td>Launch commands from shell as a separate process.</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--shell</td><td>(-s)</td><td>Launch the shell.</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> </table> <br/> <table> <tr><td><strong>Available commands:</strong></td></tr> <tr><td>help</td><td>Displays help for a command</td></tr> <tr><td>list</td><td>Lists commands</td></tr> <tr><td>assetic:dump</td><td>Dumps all assets to the filesystem</td></tr> <tr><td>assetic:watch</td><td>Dumps assets to the filesystem as their source files are modified</td></tr> <tr><td>assets:install</td><td>Installs bundles web assets under a public web directory</td></tr> <tr><td>cache:clear</td><td>Clears the cache</td></tr> <tr><td>cache:create-cache-class</td><td>Generate the classes.php files</td></tr> <tr><td>cache:warmup</td><td>Warms up an empty cache</td></tr> <tr><td>config:dump-reference</td><td>Dumps the default configuration for an extension</td></tr> <tr><td>debug:config</td><td>Dumps the current configuration for an extension</td></tr> <tr><td>debug:container</td><td>Displays current services for an application</td></tr> <tr><td>debug:event-dispatcher</td><td>Displays configured listeners for an application</td></tr> <tr><td>debug:router</td><td>Displays current routes for an application</td></tr> <tr><td>debug:swiftmailer</td><td>Displays current mailers for an application</td></tr> <tr><td>debug:translation</td><td>Displays translation messages information</td></tr> <tr><td>debug:twig</td><td>Shows a list of twig functions, filters, globals and tests</td></tr> <tr><td>doctrine:cache:clear-metadata</td><td>Clears all metadata cache for an entity manager</td></tr> <tr><td>doctrine:cache:clear-query</td><td>Clears all query cache for an entity manager</td></tr> <tr><td>doctrine:cache:clear-result</td><td>Clears result cache for an entity manager</td></tr> <tr><td>doctrine:database:create</td><td>Creates the configured database</td></tr> <tr><td>doctrine:database:drop</td><td>Drops the configured database</td></tr> <tr><td>doctrine:ensure-production-settings</td><td>Verify that Doctrine is properly configured for a production environment.</td></tr> <tr><td>doctrine:generate:crud</td><td>Generates a CRUD based on a Doctrine entity</td></tr> <tr><td>doctrine:generate:entities</td><td>Generates entity classes and method stubs from your mapping information</td></tr> <tr><td>doctrine:generate:entity</td><td>Generates a new Doctrine entity inside a bundle</td></tr> <tr><td>doctrine:generate:form</td><td>Generates a form type class based on a Doctrine entity</td></tr> <tr><td>doctrine:mapping:convert</td><td>Convert mapping information between supported formats.</td></tr> <tr><td>doctrine:mapping:import</td><td>Imports mapping information from an existing database</td></tr> <tr><td>doctrine:mapping:info</td><td></td></tr> <tr><td>doctrine:query:dql</td><td>Executes arbitrary DQL directly from the command line.</td></tr> <tr><td>doctrine:query:sql</td><td>Executes arbitrary SQL directly from the command line.</td></tr> <tr><td>doctrine:schema:create</td><td>Executes (or dumps) the SQL needed to generate the database schema</td></tr> <tr><td>doctrine:schema:drop</td><td>Executes (or dumps) the SQL needed to drop the current database schema</td></tr> <tr><td>doctrine:schema:update</td><td>Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata.</td></tr> <tr><td>doctrine:schema:validate</td><td>Validate the mapping files.</td></tr> <tr><td>generate:bundle</td><td>Generates a bundle</td></tr> <tr><td>generate:controller</td><td>Generates a controller</td></tr> <tr><td>init:acl</td><td>Mounts ACL tables in the database</td></tr> <tr><td>lint:twig</td><td>Lints a template and outputs encountered errors</td></tr> <tr><td>lint:yaml</td><td>Lints a file and outputs encountered errors</td></tr> <tr><td>router:dump-apache</td><td>[DEPRECATED] Dumps all routes as Apache rewrite rules</td></tr> <tr><td>router:match</td><td>Helps debug routes by simulating a path info match</td></tr> <tr><td>security:check</td><td>Checks security issues in your project dependencies</td></tr> <tr><td>security:encode-password</td><td>Encodes a password.</td></tr> <tr><td>server:run</td><td>Runs PHP built-in web server</td></tr> <tr><td>server:start</td><td>Starts PHP built-in web server in the background</td></tr> <tr><td>server:status</td><td>Outputs the status of the built-in web server for the given address</td></tr> <tr><td>server:stop</td><td>Stops PHP's built-in web server that was started with the server:start command</td></tr> <tr><td>sonata:admin:explain</td><td>Explain an admin service</td></tr> <tr><td>sonata:admin:generate</td><td>Generates an admin class based on the given model class</td></tr> <tr><td>sonata:admin:generate-object-acl</td><td>Install ACL for the objects of the Admin Classes.</td></tr> <tr><td>sonata:admin:list</td><td>List all admin services available</td></tr> <tr><td>sonata:admin:setup-acl</td><td>Install ACL for Admin Classes</td></tr> <tr><td>sonata:block:debug</td><td>Debug all blocks available, show default settings of each block</td></tr> <tr><td>sonata:core:dump-doctrine-metadata</td><td>Get information on the current Doctrine's schema</td></tr> <tr><td>swiftmailer:email:send</td><td>Send simple email message</td></tr> <tr><td>swiftmailer:spool:send</td><td>Sends emails from the spool</td></tr> <tr><td>translation:update</td><td>Updates the translation file</td></tr> </table> <br/>]]></help>
 </framework>
 

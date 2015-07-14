@@ -181,4 +181,9 @@ class Company
     {
         return $this->id;
     }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '企业';
+    }
 }

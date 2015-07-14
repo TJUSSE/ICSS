@@ -54,7 +54,7 @@ class StudentAdmin extends Admin
             ->add('project', 'sonata_type_model', ['property' => 'name', 'btn_add' => false])
             ->add('direction', 'sonata_type_model', ['property' => 'name', 'btn_add' => false])
             ->add('gender', 'sonata_type_model', ['property' => 'name', 'btn_add' => false])
-            ->add('name', 'text', ['required' => false])
+            ->add('name', 'text', ['required' => false, 'label' => 'people.name'])
             ->add('grade', 'text', ['required' => false])
             ->add('department', 'text', ['required' => false])
             ->add('major', 'text', ['required' => false])
@@ -77,6 +77,7 @@ class StudentAdmin extends Admin
         $instance->setValid(true);
         $instance->setDepartment('软件学院');
         $instance->setMajor('软件工程');
+
         return $instance;
     }
 
@@ -84,28 +85,52 @@ class StudentAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name', null)
+            ->add('name', null, ['label' => 'people.name'])
             ->add('cardId', null, ['label' => 'student.cardid'])
-            ->add('project.name', 'doctrine_orm_choice', [], 'choice', [
-                'choices' => $this->projectListBuilder->getList(),
-                'expanded' => true,
-                'multiple' => true
-            ])
-            ->add('grade', 'doctrine_orm_choice', [], 'choice', [
-                'choices' => $this->gradeListBuilder->getList(),
-                'expanded' => false,
-                'multiple' => false
-            ])
-            ->add('gender.name', 'doctrine_orm_choice', [], 'choice', [
-                'choices' => $this->genderListBuilder->getList(),
-                'expanded' => true,
-                'multiple' => true
-            ])
-            ->add('direction.name', 'doctrine_orm_choice', [], 'choice', [
-                'choices' => $this->directionListBuilder->getList(),
-                'expanded' => false,
-                'multiple' => false
-            ]);
+            ->add(
+                'project.name',
+                'doctrine_orm_choice',
+                [],
+                'choice',
+                [
+                    'choices' => $this->projectListBuilder->getList(),
+                    'expanded' => true,
+                    'multiple' => true,
+                ]
+            )
+            ->add(
+                'grade',
+                'doctrine_orm_choice',
+                [],
+                'choice',
+                [
+                    'choices' => $this->gradeListBuilder->getList(),
+                    'expanded' => false,
+                    'multiple' => false,
+                ]
+            )
+            ->add(
+                'gender.name',
+                'doctrine_orm_choice',
+                [],
+                'choice',
+                [
+                    'choices' => $this->genderListBuilder->getList(),
+                    'expanded' => true,
+                    'multiple' => true,
+                ]
+            )
+            ->add(
+                'direction.name',
+                'doctrine_orm_choice',
+                [],
+                'choice',
+                [
+                    'choices' => $this->directionListBuilder->getList(),
+                    'expanded' => false,
+                    'multiple' => false,
+                ]
+            );
     }
 
     // Fields to be shown on lists
@@ -113,7 +138,7 @@ class StudentAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('cardId', 'text', ['label' => 'student.cardid'])
-            ->addIdentifier('name', 'text')
+            ->addIdentifier('name', 'text', ['label' => 'people.name'])
             ->add('gender', 'many_to_one', ['associated_property' => 'name'])
             ->add('grade', 'text')
             ->add('direction', 'many_to_one', ['associated_property' => 'name']);
