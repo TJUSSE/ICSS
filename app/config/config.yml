@@ -89,7 +89,7 @@ sonata_block:
         # Your other blocks
 
 sonata_admin:
-    title: '实习就业服务中心'
+    title: '实习就业服务系统'
     templates:
         layout: SSEICSSBundle:Console:standard_layout.html.twig
         list: SSEICSSBundle:Console:list.html.twig
@@ -144,6 +144,6 @@ sonata_admin:
 
             #- bundles/sonataadmin/App.js
             - bundles/sseicss/vendor/slimScroll/jquery.slimscroll.min.js
-            - bundles/sseicss/vendor/AdminLTE/js/app.min.js
+            - bundles/sseicss/vendor/AdminLTE/js/app.js
             - bundles/sonataadmin/Admin.js
             - bundles/sseicss/js/Admin.js

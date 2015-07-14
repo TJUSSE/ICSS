@@ -1,3 +1,28 @@
 .sse-console-system-link
-  border-top: 1px solid #444444
+  border-top: 1px solid rgba(255,255,255,0.05)
   padding-top: 10px
+  margin-top: 10px
+
+.treeview-menu
+  background: none !important
+
+.sidebar-menu .treeview-menu
+  padding-left: 0
+
+.sidebar-menu>li.active>a
+  border-left-color: transparent !important
+
+.treeview-menu>li>a
+  transition: background .2s ease-in-out, border-color .2s ease-in-out
+  border-left: 3px solid transparent
+
+.treeview-menu>li:hover>a
+  background: #2F4047
+  border-left-color: #00a65a
+
+.treeview-menu>li.active>a
+  background: #41697A
+  border-left-color: #00a65a
+
+.sidebar-menu .treeview-menu>li>a
+  padding: 7px 7px 7px 15px

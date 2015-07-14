@@ -1,4 +1,12 @@
 {% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% block javascripts %}
+    <script>
+        window.AdminLTEOptions = {
+            sidebarPushMenu: false
+        };
+    </script>
+    {{ parent() }}
+{% endblock %}
 {% block body_attributes %}class="sonata-bc skin-green fixed"{% endblock %}
 {% block sonata_header %}
     <header class="main-header">
@@ -99,7 +107,7 @@
                                                 {% set active = true %}
                                             {% endif %}
                                         {% endfor %}
-                                        <li class="treeview{% if active %} active{% endif %}">
+                                        <li class="treeview active">
                                             <a href="#">
                                                 <span>{{ group.label|trans({}, group.label_catalogue) }}</span>
                                                 <i class="fa pull-right fa-angle-left"></i>
