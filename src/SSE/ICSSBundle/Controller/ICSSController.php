@@ -5,16 +5,16 @@ namespace SSE\ICSSBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class ICSSController extends Controller
 {
     /**
      * @Route("/", name="index")
+     * @Template()
      */
     public function indexAction()
     {
-        return new Response('<body><h1>It works!</h1></body>');
+        return [];
     }
 
     /**

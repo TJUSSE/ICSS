@@ -23,7 +23,6 @@
         "stof/doctrine-extensions-bundle": "~1.1",
         "sonata-project/admin-bundle": "~2.3",
         "sonata-project/doctrine-orm-admin-bundle": "~2.3",
-        "stfalcon/tinymce-bundle": "0.3.*",
         "nategood/httpful": "0.2.*",
         "ddeboer/data-import-bundle": "0.1.*",
         "phpoffice/phpexcel": "~1.8",
