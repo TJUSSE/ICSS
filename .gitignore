@@ -40,3 +40,4 @@ workspace.xml
 
 # nodejs
 node_modules/
+npm-debug.log
