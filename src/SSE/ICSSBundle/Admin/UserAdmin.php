@@ -21,15 +21,17 @@ class UserAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('username', 'text', ['label' => '用户名称'])
-            ->add('password', 'password', ['label' => '用户密码']);
+            ->with('基本信息')
+                ->add('username', 'text', ['label' => '用户名称'])
+                ->add('password', 'password', ['label' => '用户密码'])
+            ->end();
     }
 
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('username');
+            ->add('username', null, ['label' => 'user.username']);
     }
 
     // Fields to be shown on lists
