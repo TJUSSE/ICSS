@@ -36,6 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        dynamic_content: "@sse.icss.dynamic_content_marker"
 
 # Assetic Configuration
 assetic:
@@ -79,6 +81,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
 
 sonata_block:
     default_contexts: [cms]

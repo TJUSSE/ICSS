@@ -57,6 +57,8 @@
       <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle/Tests/DependencyInjection" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle/Doctrine/Bundle/DoctrineCacheBundle/Tests/DependencyInjection" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/behat/transliterator/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/app/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/app/logs" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

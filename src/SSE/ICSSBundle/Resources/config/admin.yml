@@ -64,10 +64,10 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
-            - [ setProjectListBuilder, [ @sse_icss.builder.project_list_builder ] ]
-            - [ setGradeListBuilder, [ @sse_icss.builder.grade_list_builder ] ]
-            - [ setDirectionListBuilder, [ @sse_icss.builder.direction_list_builder ] ]
-            - [ setGenderListBuilder, [ @sse_icss.builder.gender_list_builder ] ]
+            - [ setProjectListBuilder, [ @sse.icss.builder.project_list_builder ] ]
+            - [ setGradeListBuilder, [ @sse.icss.builder.grade_list_builder ] ]
+            - [ setDirectionListBuilder, [ @sse.icss.builder.direction_list_builder ] ]
+            - [ setGenderListBuilder, [ @sse.icss.builder.gender_list_builder ] ]
 
     sse.icss.dashboard.teacher:
         class: SSE\ICSSBundle\Admin\TeacherAdmin
