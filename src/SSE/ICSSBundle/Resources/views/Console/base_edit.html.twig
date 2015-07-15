@@ -1,2 +1,8 @@
 {% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/sseicss/vendor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('bundles/sseicss/vendor/ckeditor/skins/office2013/skin.js') }}"></script>
+    <script src="{{ asset('bundles/sseicss/vendor/ckeditor/lang/zh-cn.js') }}"></script>
+{% endblock %}
 {% use 'SSEICSSBundle:Console:base_edit_form.html.twig' with form as parentForm %}
