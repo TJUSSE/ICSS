@@ -42,7 +42,13 @@ class UserAdmin extends Admin
     public function prePersist($object)
     {
         $object-> setRoles("ROLE_USER");
-       // $password= new PasswordEncoder();
+        $object->setSalt($this->produceSalt());
+        $password= (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
+        $object->setPassword($password);
+    }
+
+    public function preUpdate($object)
+    {
         $object->setSalt($this->produceSalt());
         $password= (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
         $object->setPassword($password);
