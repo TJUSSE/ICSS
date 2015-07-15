@@ -13,6 +13,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use SSE\ICSSBundle\Security\User\PasswordEncoder;
 
 class UserAdmin extends Admin
 {
@@ -36,5 +37,21 @@ class UserAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('username', 'text', ['label' => '用户名称']);
+    }
+
+    public function prePersist($object)
+    {
+        $object-> setRoles("ROLE_USER");
+       // $password= new PasswordEncoder();
+        $object->setSalt($this->produceSalt());
+        $password= (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
+        $object->setPassword($password);
+    }
+
+    protected function produceSalt()
+    {
+        $salt= (string) rand() . (string) date(DATE_RFC822) . (string) uniqid();
+        $salt= hash('sha256', $salt);
+        return $salt;
     }
 }
