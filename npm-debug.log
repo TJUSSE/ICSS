@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/lib/node_modules/cnpm/node_modules/.bin/npm',
+1 verbose cli   '--userconfig=/home/liki/.cnpmrc',
+1 verbose cli   '--disturl=https://npm.taobao.org/mirrors/node',
+1 verbose cli   '--cache=/home/liki/.cnpm',
+1 verbose cli   '--registry=https://registry.npm.taobao.org',
+1 verbose cli   '--node-gyp=/usr/lib/node_modules/cnpm/node_modules/pangyp/bin/node-gyp.js',
+1 verbose cli   'install' ]
+2 info using npm@2.7.6
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies loading dependencies from /home/liki/sse_project/ICSS/package.json
+6 error install Couldn't read dependencies
+7 verbose stack Error: ENOENT, open '/home/liki/sse_project/ICSS/package.json'
+8 verbose cwd /home/liki/sse_project/ICSS
+9 error Linux 3.16.0-43-generic
+10 error argv "node" "/usr/lib/node_modules/cnpm/node_modules/.bin/npm" "--userconfig=/home/liki/.cnpmrc" "--disturl=https://npm.taobao.org/mirrors/node" "--cache=/home/liki/.cnpm" "--registry=https://registry.npm.taobao.org" "--node-gyp=/usr/lib/node_modules/cnpm/node_modules/pangyp/bin/node-gyp.js" "install"
+11 error node v0.10.37
+12 error npm  v2.7.6
+13 error path /home/liki/sse_project/ICSS/package.json
+14 error code ENOPACKAGEJSON
+15 error errno 34
+16 error package.json ENOENT, open '/home/liki/sse_project/ICSS/package.json'
+16 error package.json This is most likely not a problem with npm itself.
+16 error package.json npm can't find a package.json file in your current directory.
+17 verbose exit [ 34, true ]

@@ -16,7 +16,8 @@ class CompanyAdmin extends Admin
             ->add('name', 'text', ['label' => '企业名称'])
             ->add('location', 'text', ['label' => '企业位置'])
             ->add('hidden', 'checkbox', ['label' => '隐藏该企业', 'required' => false])
-            ->add('intro', 'textarea', ['label' => '企业介绍']);
+            ->add('intro', 'textarea', ['label' => '企业介绍','attr' => array('class' => 'ckeditor')]);
+	    //->add('content', null, array('required' => false, 'attr' => array('class' => 'ckeditor')));
         /*
             ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
             ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
