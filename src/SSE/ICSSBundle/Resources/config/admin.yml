@@ -79,3 +79,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.user:
+        class: SSE\ICSSBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "user_management", label: "user_info" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\User
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]

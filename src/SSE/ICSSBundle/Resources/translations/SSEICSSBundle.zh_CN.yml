@@ -6,6 +6,7 @@ param_gender: 性别
 
 student_info: 个人信息
 teacher_info: 教师信息
+user_info: 内置用户
 
 Company List: 企业列表
 Intern Type List: 实习性质列表
@@ -13,6 +14,7 @@ Project List: 学历列表
 Direction List: 方向列表
 Student List: 学生列表
 Teacher List: 教师列表
+User List: 用户列表
 
 Name: 名称
 
@@ -35,3 +37,6 @@ teacher.cardid: 工号
 teacher.department: 行政部门
 Officename: 教研室
 Office: 办公室
+
+user.username: 用户名称
+
