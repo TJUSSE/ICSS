@@ -8,17 +8,16 @@
 
 namespace SSE\ICSSBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SSE\ICSSBundle\Entity\RecruitApply;
 use SSE\ICSSBundle\Entity\RecruitApplyArchive;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\Tools\Pagination\Paginator;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\Validator\Constraints\DateTime;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Util\SecureRandom;
+
 class RecruitController extends Controller
 {
     /**
@@ -26,36 +25,31 @@ class RecruitController extends Controller
      */
     public function listAction($page)
     {
-        $pageSize=20;
-        $em=$this->getDoctrine()->getManager();
-        $query=$em->createQuery('SELECT r FROM SSEICSSBundle:Recruit ORDER BY r.publishAt DESC');
+        $pageSize = 20;
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT r FROM SSEICSSBundle:Recruit ORDER BY r.publishAt DESC');
 
-        $paginator=new Paginator($query);
+        $paginator = new Paginator($query);
 
-        $totalRecruits=count($paginator);
-        $pagesCount=ceil($totalRecruits/$pageSize);
+        $totalRecruits = count($paginator);
+        $pagesCount = ceil($totalRecruits / $pageSize);
 
         $paginator
             ->getQuery()
-            ->setFirstResult($pageSize*($page-1))
+            ->setFirstResult($pageSize * ($page - 1))
             ->setMaxResults($pageSize);
 
-        $list=$query->getArrayResult();
+        $list = $query->getArrayResult();
 
-        $response=new JsonResponse();
-
-        $response->setData(
-            array(
-                "totalRecruits"=>$totalRecruits,
-                "pagesCount"=>$pagesCount,
-                "list"=>$list
-            )
+        $response = new JsonResponse(
+            [
+                "totalRecruits" => $totalRecruits,
+                "pagesCount" => $pagesCount,
+                "list" => $list,
+            ]
         );
+
         return $response;
-
-
-
-
     }
 
     /**
@@ -63,25 +57,24 @@ class RecruitController extends Controller
      */
     public function detailAction($id)
     {
-        $em=$this->getDoctrine()->getManager();
-        $repository=$em->getRepository("SSEICSSBundle:Recruit");
-        $recruit=$repository->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("SSEICSSBundle:Recruit");
+        $recruit = $repository->find($id);
 
-        $response=new JsonResponse();
-        $response->setData(
-            array("recruit"=>$rec=array(
-                'publishAt'=>$recruit->getPublishAt(),
-                'ended'=>$recruit->getEnded(),
-                'intro'=>$recruit->getIntro(),
-                'hidden'=>$recruit->getHidden(),
-                'applyLimit'=>$recruit->getApplyLimit(),
-                'visitCount'=>$recruit->getVisitCount(),
-                'id'=>$recruit->getId(),
-                'company'=>$recruit->getCompany(),
-                'types'=>$recruit->getTypes(),
-                'suitableInternTypes'=>$recruit->getSuitableInternTypes(),
-                'suitableProjects'=>$recruit->getSuitableProjects()
-            ))
+        $response = new JsonResponse(
+            [
+                'publishAt' => $recruit->getPublishAt(),
+                'ended' => $recruit->getEnded(),
+                'intro' => $recruit->getIntro(),
+                'hidden' => $recruit->getHidden(),
+                'applyLimit' => $recruit->getApplyLimit(),
+                'visitCount' => $recruit->getVisitCount(),
+                'id' => $recruit->getId(),
+                'company' => $recruit->getCompany(),
+                'types' => $recruit->getTypes(),
+                'suitableInternTypes' => $recruit->getSuitableInternTypes(),
+                'suitableProjects' => $recruit->getSuitableProjects(),
+            ]
         );
 
         return $response;
@@ -93,213 +86,195 @@ class RecruitController extends Controller
      */
     public function applyAction(Request $request)
     {
-        $recruitId=$request->request->get('recruitId');
-        $internTypeId=$request->request->get('internTypeId');
-        $projectId=$request->request->get('projectId');
-        $studentId=$request->request->get('studentId');
-        $description=$request->request->get('description');
+        $em = $this->getDoctrine()->getManager();
 
-        $isInTypes=false;
-        $isInProjects=false;
-        $isUnderLimit=false;
+        $studentId = $this->getUser()->getId();
+        $student = $em->getRepository('SSEICSSBundle:Student')->find($studentId);
 
-        $em=$this->getDoctrine()->getManager();
-        $recruitRepository=$em->getRepository("SSEICSSBundle:Recruit");
-        $studentRepository=$em->getRepository("SSEICSSBundle:Student");
-        $internTypeRepository=$em->getRepository("SSEICSSBundle:InternType");
+        $recruitId = $request->request->get('recruitId');
+        $internTypeId = $request->request->get('internTypeId');
+        $description = $request->request->get('description');
 
-        $recruit=$recruitRepository->find($recruitId);
-        $student=$studentRepository->find($studentId);
-        $internType=$internTypeRepository->find($internTypeId);
+        $recruit = $em->getRepository("SSEICSSBundle:Recruit")->find($recruitId);
+        $internType = $em->getRepository("SSEICSSBundle:InternType")->find($internTypeId);
 
-        switch ($recruit->getApplyLimit())
-        {
-            case 0:
-                $response=new JsonResponse();
-                $response->setData(
-                    array(
-                        'ok'=>false,
-                        'message'=>" ²»ÔÊĞíÉêÇë¡£"
-                    )
-                );
-                return $response;
-                break;
-            case -1:
-                $isUnderLimit=true;
-                break;
-            default:
-                $query=$em->createQuery("SELECT COUNT(ra.id) FROM¡¡SSEICSSBundle:RecruitApply ra
-                                   WHERE ra.recruit.id = ?1")
-                           ->setParameter(1,$recruitId);
+        // æ£€æŸ¥æ˜¯å¦åœ¨ç”³è¯·åé¢å†…
+        $query = $em->createQuery("SELECT COUNT(ra.id) FROM SSEICSSBundle:RecruitApply ra WHERE ra.recruit.id = ?")
+            ->setParameter(1, $recruitId);
 
-                $appliesCount=$query->getScalarResult();
-                if ($appliesCount<$recruit->getApplyLimit())
-                    $isUnderLimit=true;
-                break;
-        }
-
-        $suitableInternTypes=$recruit->getSuitableInternTypes();
-        $suitableProjects=$recruit->getSuitableProjects();
-
-
-        foreach($suitableInternTypes as $ainternType)
-        {
-            if ($internTypeId==$ainternType->getId())
-            {
-                $isInTypes = true;
-                break;
-            }
-        }
-        foreach($suitableProjects as $project)
-        {
-            if($projectId==$project->getId())
-            { $isInProjects=true;
-                break;
-            }
-        }
-
-        if($isInTypes&&$isInProjects&&$isUnderLimit)
-        {
-            $recruitApply=new RecruitApply();
-            $recruitApply->setAt(new\DateTime());
-            if($internType->getApprove()) {
-                $recruitApply->setApproved(false);
-            }
-            else{ $recruitApply->setApproved(true);}
-            $recruitApply->setCanceled(false);
-            $recruitApply->setDescription($description);
-            $recruitApply->setStudent($student);
-            $recruitApply->setRecruit($recruit);
-            $recruitApply->setInternType($internType);
-            $em->persist($recruitApply);
-            $em->flush();
-
-            $response=new JsonResponse();
-            $response->setData(
-                array(
-                    'ok'=>true,
-                    'message'=>"ÉêÇë³É¹¦£¡"
-                )
+        $appliesCount = $query->getScalarResult();
+        if ($appliesCount >= $recruit->getApplyLimit()) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => "è¯¥æ‹›è˜ä¿¡æ¯ç”³è¯·åé¢å·²æ»¡",
+                ]
             );
-            return $response;
         }
 
-        else{
-            $response=new JsonResponse();
-            $response->setData(
-                array(
-                    'ok'=>false,
-                    'message'=>"ÉêÇëÊ§°Ü£¬¿ÉÄÜÓĞÒÔÏÂÔ­Òò£º£¨1£©ÉêÇëÈËÊıÒÑ³¬¹ıÏŞÖÆ¡£
-                    £¨2£©ÄúÉêÇëµÄÊµÏ°ÀàĞÍÓë¸ÃÕĞÆ¸ÀàĞÍ²»·û¡££¨3£©ÄúµÄÄê¼¶²»·ûºÏÒªÇó¡£"
-                )
+        // æ£€æŸ¥æ‰€ç”³è¯·çš„å®ä¹ æ€§è´¨
+        $valid = false;
+        $suitableInternTypes = $recruit->getSuitableInternTypes();
+        foreach ($suitableInternTypes as $_type) {
+            if ($internTypeId === $_type->getId()) {
+                $valid = true;
+                break;
+            }
+        }
+
+        if (!$valid) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => 'è¯¥æ‹›è˜ä¸èƒ½ä½œä¸º'.$internType->getName().'ç”³è¯·',
+                ]
             );
-            return $response;
         }
 
+        // æ£€æŸ¥å­¦ç”Ÿå­¦å†
+        $valid = false;
+        $suitableProjects = $recruit->getSuitableProjects();
+        foreach ($suitableProjects as $_project) {
+            if ($student->getProject() === $_project->getId()) {
+                $valid = true;
+                break;
+            }
+        }
+
+        if (!$valid) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => 'æ‚¨çš„å­¦å†ä¸èƒ½ç”³è¯·è¯¥æ‹›è˜',
+                ]
+            );
+        }
+
+        // å»ºç«‹å®ä¹ ç”³è¯·
+        $recruitApply = new RecruitApply();
+
+        if ($internType->getApprove()) {
+            // è¯¥å®ä¹ ç±»åˆ«çš„ç”³è¯·éœ€è¦å®¡æ‰¹
+            $recruitApply->setApproved(false);
+        } else {
+            // ä¸éœ€è¦å®¡æ‰¹ï¼Œåˆ™ç›´æ¥å˜ä¸ºå®¡æ‰¹é€šè¿‡
+            $recruitApply->setApproved(true);
+        }
+
+        $recruitApply->setCanceled(false);
+        $recruitApply->setDescription($description);
+        $recruitApply->setStudent($student);
+        $recruitApply->setRecruit($recruit);
+        $recruitApply->setInternType($internType);
+        $em->persist($recruitApply);
+        $em->flush();
+
+        return new JsonResponse(
+            [
+                'ok' => true,
+                'message' => "ç”³è¯·æˆåŠŸ",
+            ]
+        );
     }
+
     /**
      * @Route("/recruit/upload",name="SSEICSSBundle_Recruit_upload")
      * @Method("POST")
      */
     public function uploadAction(Request $request)
     {
-       // $archiveFile=$request->request->get('archiveFile');
-        $archiveFile=$_FILES['archiveFile'];
-        $applyId=$request->request->get('applyId');
-        $archiveTypeId=$request->request->get('archiveTypeId');
-        $archiveName=$request->request->get('archiveName');
+        $applyId = $request->request->get('applyId');
+        $archiveTypeId = $request->request->get('archiveTypeId');
 
+        if ($request->files->count() !== 1) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => "è¯·é€‰æ‹©ä¸Šä¼ æ–‡ä»¶",
+                ]
+            );
+        }
 
-        $isTypeOk=false;
-        $isTimeOk=false;
+        var_dump($request->files);
 
-        $em=$this->getDoctrine()->getManager();
-        $applyRepository=$em->getRepository("SSEICSSBundle:RecruitApply");
-        $archiveTypeRepository=$em->getRepository("SSEICSSBundle:InternArchive");
+        $em = $this->getDoctrine()->getManager();
+        $recruitApply = $em->getRepository("SSEICSSBundle:RecruitApply")->find($applyId);
 
-        $recruitApply=$applyRepository->find($applyId);
-        $archiveType=$archiveTypeRepository->find($archiveTypeId);
+        // æ£€æŸ¥ç”¨æˆ·
+        if ($recruitApply->getStudent()->getId() !== $this->getUser()->getId()) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => 'æ‚¨æ²¡æœ‰æƒé™ä¸ºè¯¥ç”³è¯·ä¸Šä¼ æ¡£æ¡ˆ',
+                ]
+            );
+        }
 
-        foreach($archiveType->getSuitableInternTypes() as $type)
-        {
-            if($type->getId()==$recruitApply->getInternType()->getId())
-            {
-                $isTypeOk=true;
+        // æ£€æŸ¥æ˜¯å¦å¯ä»¥é€’äº¤è¯¥ç±»å‹çš„æ¡£æ¡ˆ
+        $valid = false;
+        $archiveTypeRepository = $em->getRepository("SSEICSSBundle:InternArchive");
+        $archiveType = $archiveTypeRepository->find($archiveTypeId);
+
+        foreach ($archiveType->getSuitableInternTypes() as $type) {
+            if ($type->getId() == $recruitApply->getInternType()->getId()) {
+                $valid = true;
                 break;
             }
         }
 
-        if($archiveType->getAfterApprove())
-        {
-            if($recruitApply->getApproved())
-                $isTimeOk=true;
-
-        }
-        else if(!$archiveType->getAfterApprove()){
-              $isTimeOk=true;
-        }
-        else if($archiveType->getAfterApprove()==null){
-              $isTimeOk=true;
-        }
-
-
-        if($isTimeOk&&$isTypeOk)
-        {
-            $applyArchive=new RecruitApplyArchive();
-
-            $applyArchive->setAt(new\DateTime());
-            $applyArchive->setArchive($archiveType);
-            $applyArchive->setArchiveName($archiveName);
-            $applyArchive->setApply($recruitApply);
-            $applyArchive->setArchiveFile($archiveFile);
-
-            $recruitApply->addArchive($applyArchive);
-
-            $em->persist($recruitApply);
-            $em->persist($applyArchive);
-            $em->flush();
-
-            $response=new JsonResponse();
-            $response->setData(
-                array(
-                    'ok'=>true,
-                    'message'=>"ÉÏ´«³É¹¦¡£"
-                )
-            );
-
-        }
-        else{
-            $response=new JsonResponse();
-            $response->setData(
-                array(
-                    'ok'=>false,
-                    'message'=>"ÉÏ´«Ê§°Ü,¸ÃÊµÏ°ÀàĞÍÎŞĞèÉÏ´«´ËÀàÎÄ¼ş»òÉÏ´«Ê±»ú²»¶Ô£¨ÉêÇëÎ´ÉóÅú£©¡£"
-                )
+        if (!$valid) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => 'è¯¥å®ä¹ æ€§è´¨ä¸èƒ½é€’äº¤è¯¥ç±»å‹æ¡£æ¡ˆ',
+                ]
             );
         }
-        return $response;
 
-/*        $applyArchive=new RecruitApplyArchive();
-
-        $form=$this->createFormBuilder($applyArchive)
-            ->add('apply','integer')
-            ->add('archive','integer')
-            ->add('archiveFile','vich_file',array(
-                'required'=>false,
-                'allow_delete'=>true,
-                'download_link'=>true,
-            ))
-            ->add('upload','submit',array('label'=>'upload'))
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if($form->isValid())
-        {
-            return new Response('success');
+        // æ£€æŸ¥é€’äº¤æ—¶æœº
+        $valid = false;
+        if ($archiveType->getAfterApprove()) {
+            // å¿…é¡»åœ¨å®¡æ‰¹åé€’äº¤
+            $valid = $recruitApply->getApproved();
         }
-        return $this->render('SSEICSSBundle:Default:new.html.twig', array(
-            'form' => $form->createView(),
-        ));*/
+        if ($archiveType->getAfterApply()) {
+            // ç”³è¯·åå°±å¯ä»¥é€’äº¤
+            $valid = true;
+        }
+        if (!$valid) {
+            return new JsonResponse(
+                [
+                    'ok' => false,
+                    'message' => 'ç°åœ¨ä¸èƒ½é€’äº¤è¯¥ç±»å‹æ¡£æ¡ˆ',
+                ]
+            );
+        }
+
+        die();
+
+        //$uploadFile = $request->files->;
+
+        // generate a new file name to store the file
+        $generator = new SecureRandom();
+        $fileName = sha1(uniqid().'_'.$generator->nextBytes(10));
+        $originalFileName = $uploadFile->getClientOriginalName();
+        $file = $uploadFile->move($this->container->getParameter('upload_destination'), $fileName);
+
+        $applyArchive = new RecruitApplyArchive();
+
+        $applyArchive->setApply($recruitApply);
+        $applyArchive->setArchive($archiveType);
+        $applyArchive->setArchiveName($originalFileName);
+        $applyArchive->setArchiveFile($fileName);
+
+        $em->persist($applyArchive);
+        $em->flush();
+
+        return new JsonResponse(
+            [
+                'ok' => true,
+                'message' => 'æ·»åŠ æˆåŠŸ',
+            ]
+        );
     }
 }

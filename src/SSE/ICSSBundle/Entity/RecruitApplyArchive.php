@@ -3,7 +3,6 @@
 namespace SSE\ICSSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -25,19 +24,17 @@ class RecruitApplyArchive
     /**
      * @var string
      *
-     * @ORM\Column(name="archiveName", type="string", length=128, nullable=true)
+     * @ORM\Column(name="archive_name", type="string", length=128, nullable=true)
      */
-
     private $archiveName;
 
     /**
+     * @var string
      *
-     * @Vich\UploadableField(mapping="apply_archive", fileNameProperty="archiveName")
-     *
-     * @var File $archiveFile
+     * @ORM\Column(name="archive_file", type="string", length=128, nullable=true)
      */
-
     private $archiveFile;
+
     /**
      * @var integer
      *
@@ -113,23 +110,21 @@ class RecruitApplyArchive
     {
         return $this->archiveName;
     }
+
     /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $archiveFile
-     */
-    public function setArchiveFile(File $archiveFile = null)
-    {
-        $this->archiveFile=$archiveFile;
-        if($archiveFile)
-        {
-            $this->at=new \DateTime('now');
-        }
-    }
-    /**
-     * @return File
+     * @return string
      */
     public function getArchiveFile()
     {
         return $this->archiveFile;
+    }
+
+    /**
+     * @param string $archiveFile
+     */
+    public function setArchiveFile($archiveFile)
+    {
+        $this->archiveFile = $archiveFile;
     }
 
     /**
@@ -187,4 +182,6 @@ class RecruitApplyArchive
     {
         return $this->archive;
     }
+
+
 }
