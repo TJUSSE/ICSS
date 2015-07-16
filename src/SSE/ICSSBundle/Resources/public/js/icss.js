@@ -22,3 +22,9 @@ var ICSS = {
 }
 
 $(document).on('click', '.role-login-button', ICSS.Util.showLoginSSO);
+
+$(document).on('ready', function () {
+  if ($(document.body).hasClass('body-recruit-detail')) {
+    $(".detail--info").sticky({topSpacing:70});
+  };
+});
