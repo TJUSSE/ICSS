@@ -89,7 +89,6 @@ class HybridUserProvider implements UserProviderInterface
         if (!$user) {
             return false;
         }
-
         $hash = $this->passwordEncoder->encode($password, $user->getSalt());
         if ($hash !== $user->getPassword()) {
             return false;
