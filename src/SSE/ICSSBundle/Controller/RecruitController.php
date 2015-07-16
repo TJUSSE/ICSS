@@ -33,6 +33,7 @@ class RecruitController extends Controller
 
     /**
      * @Route("/recruit/detail/{id}",name="recruitDetail")
+     * @Template()
      */
     public function detailAction($id)
     {
@@ -40,38 +41,7 @@ class RecruitController extends Controller
         $repository = $em->getRepository("SSEICSSBundle:Recruit");
         $recruit = $repository->find($id);
 
-        $response = new JsonResponse(
-            [
-                'publishAt' => $recruit->getPublishAt(),
-                'ended' => $recruit->getEnded(),
-                'intro' => $recruit->getIntro(),
-                'hidden' => $recruit->getHidden(),
-                'applyLimit' => $recruit->getApplyLimit(),
-                'visitCount' => $recruit->getVisitCount(),
-                'id' => $recruit->getId(),
-                'company' => [
-                    'name' => $recruit->getCompany()->getName(),
-                    'id' => $recruit->getCompany()->getId(),
-                ],
-                'types' => $recruit->getTypes()->map(
-                    function ($t) {
-                        return $t->getName();
-                    }
-                )->toArray(),
-                'suitableInternTypes' => $recruit->getSuitableInternTypes()->map(
-                    function ($t) {
-                        return $t->getName();
-                    }
-                )->toArray(),
-                'suitableProjects' => $recruit->getSuitableProjects()->map(
-                    function ($p) {
-                        return $p->getName();
-                    }
-                )->toArray(),
-            ]
-        );
-
-        return $response;
+        return ['recruit' => $recruit];
     }
 
     /**

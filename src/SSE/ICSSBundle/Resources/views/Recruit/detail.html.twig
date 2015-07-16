@@ -1,0 +1,33 @@
+{% extends 'SSEICSSBundle::dynamic.html.twig' %}
+{% block title %}招聘信息 - {{ recruit.title }}{% endblock %}
+{% block basebodyclass %}body-recruit-detail{% endblock %}
+{% block body %}
+    <div class="detail detail__recruits">
+        <h2>{{ recruit.title }}</h2>
+
+        <div class="detail--info">
+            <div class="company">公司：<a
+                        href="{{ path('companyDetail', {id: recruit.company.id}) }}">{{ recruit.company.name }}</a>
+            </div>
+            <div class="publish_date">发布时间：{{ recruit.publishAt|date("Y-m-d") }}</div>
+            <div class="end_date">报名截止时间：{{ recruit.ended|date("Y-m-d") }}</div>
+            <div class="suit">适用学历：
+                {% if recruit.suitableProjects is defined %}
+                    {% for project in recruit.suitableProjects %}
+                        <span class="suit-item">{{ project.name }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="suit">适用实习：
+                {% if recruit.suitableInternTypes is defined %}
+                    {% for type in recruit.suitableInternTypes %}
+                        <span class="suit-item">{{ type.name }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        {% autoescape false %}
+            <div class="detail--body">{{ recruit.intro }}</div>
+        {% endautoescape %}
+    </div>
+{% endblock %}
