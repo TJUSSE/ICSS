@@ -30,9 +30,9 @@ Email: Email
 Mobile: 手机号
 Project: 学历
 Direction: 方向
-Project Name: 学历
-Gender Name: 性别
-Direction Name: 方向
+Project Id: 学历
+Gender Id: 性别
+Direction Id: 方向
 
 teacher.cardid: 工号
 teacher.department: 行政部门
