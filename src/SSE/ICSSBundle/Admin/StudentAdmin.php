@@ -88,7 +88,7 @@ class StudentAdmin extends Admin
             ->add('name', null, ['label' => 'people.name'])
             ->add('cardId', null, ['label' => 'student.cardid'])
             ->add(
-                'project.name',
+                'project.id',
                 'doctrine_orm_choice',
                 [],
                 'choice',
@@ -110,7 +110,7 @@ class StudentAdmin extends Admin
                 ]
             )
             ->add(
-                'gender.name',
+                'gender.id',
                 'doctrine_orm_choice',
                 [],
                 'choice',
@@ -121,7 +121,7 @@ class StudentAdmin extends Admin
                 ]
             )
             ->add(
-                'direction.name',
+                'direction.id',
                 'doctrine_orm_choice',
                 [],
                 'choice',
