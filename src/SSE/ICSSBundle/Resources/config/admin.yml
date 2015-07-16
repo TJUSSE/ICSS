@@ -124,19 +124,6 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
-    # add mentor info
-    sse.icss.dashboard.mentor:
-        class: SSE\ICSSBundle\Admin\MentorAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "user_management", label: "mentor_info" }
-        arguments:
-            - ~
-            - SSE\ICSSBundle\Entity\Teacher
-            - ~
-        calls:
-            - [ setTranslationDomain, [SSEICSSBundle]]
-            - [ setSecurityContext, [@security.context] ]
-
     sse.icss.dashboard.user:
         class: SSE\ICSSBundle\Admin\UserAdmin
         tags:
