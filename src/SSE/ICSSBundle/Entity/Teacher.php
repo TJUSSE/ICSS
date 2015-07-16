@@ -77,6 +77,8 @@ class Teacher extends BaseUser
      */
     private $id;
 
+
+
     /**
      * @var \SSE\ICSSBundle\Entity\Gender
      *
@@ -86,7 +88,7 @@ class Teacher extends BaseUser
      * })
      */
     private $gender;
-
+   
     public function __construct()
     {
         $this->setRoles('ROLE_TEACHER');
@@ -98,6 +100,7 @@ class Teacher extends BaseUser
      * @param string $cardId
      * @return Teacher
      */
+
     public function setCardId($cardId)
     {
         $this->cardId = $cardId;

@@ -5,12 +5,12 @@ namespace SSE\ICSSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Student
+ * Teacher
  *
- * @ORM\Table(name="student")
+ * @ORM\Table(name="teacher")
  * @ORM\Entity
  */
-class Student extends BaseUser
+class Teacher extends BaseUser
 {
     /**
      * @var string
@@ -27,11 +27,11 @@ class Student extends BaseUser
     private $name;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="grade", type="integer", nullable=true)
+     * @ORM\Column(name="office_name", type="string", length=64, nullable=true)
      */
-    private $grade;
+    private $officeName;
 
     /**
      * @var string
@@ -43,9 +43,9 @@ class Student extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="major", type="string", length=64, nullable=true)
+     * @ORM\Column(name="office", type="string", length=64, nullable=true)
      */
-    private $major;
+    private $office;
 
     /**
      * @var string
@@ -69,13 +69,6 @@ class Student extends BaseUser
     private $mobile;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="valid", type="boolean", nullable=true)
-     */
-    private $valid;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -84,25 +77,7 @@ class Student extends BaseUser
      */
     private $id;
 
-    /**
-     * @var \SSE\ICSSBundle\Entity\Teacher
-     *
-     * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Teacher")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="mentor_teacher_id", referencedColumnName="id")
-     * })
-     */
-    private $mentor;
 
-    /**
-     * @var \SSE\ICSSBundle\Entity\Project
-     *
-     * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Project")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
-     * })
-     */
-    private $project;
 
     /**
      * @var \SSE\ICSSBundle\Entity\Gender
@@ -113,31 +88,34 @@ class Student extends BaseUser
      * })
      */
     private $gender;
-
+   
+ //to add the instruction info   
     /**
-     * @var \SSE\ICSSBundle\Entity\Direction
-     *
-     * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Direction")
+     * @var \SSE\ICSSBundle\Entity\Student
+     * @ORM\OneToMany(targetEntity="SSE\ICSSBundle\Entity\Student")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="direction_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="mentor_student", referencedColumnName="id")
      * })
      */
-    private $direction;
+    private $insStudent;
 
     public function __construct()
     {
-        $this->setEnabled(true);
-        $this->setValid(true);
-        $this->setRoles('ROLE_STUDENT');
+        $this->setRoles('ROLE_TEACHER');
     }
 
     /**
      * Set cardId
      *
      * @param string $cardId
-     * @return Student
+     * @return Teacher
      */
 
+    public function setInsStudent($insStudent)
+    {
+	$this->insStudent = $insStudent;
+	return $this;
+    }
     public function setCardId($cardId)
     {
         $this->cardId = $cardId;
@@ -159,7 +137,7 @@ class Student extends BaseUser
      * Set name
      *
      * @param string $name
-     * @return Student
+     * @return Teacher
      */
     public function setName($name)
     {
@@ -179,33 +157,33 @@ class Student extends BaseUser
     }
 
     /**
-     * Set grade
+     * Set officeName
      *
-     * @param integer $grade
-     * @return Student
+     * @param string $officeName
+     * @return Teacher
      */
-    public function setGrade($grade)
+    public function setOfficeName($officeName)
     {
-        $this->grade = $grade;
+        $this->officeName = $officeName;
 
         return $this;
     }
 
     /**
-     * Get grade
+     * Get officeName
      *
-     * @return integer
+     * @return string
      */
-    public function getGrade()
+    public function getOfficeName()
     {
-        return $this->grade;
+        return $this->officeName;
     }
 
     /**
      * Set department
      *
      * @param string $department
-     * @return Student
+     * @return Teacher
      */
     public function setDepartment($department)
     {
@@ -225,33 +203,33 @@ class Student extends BaseUser
     }
 
     /**
-     * Set major
+     * Set office
      *
-     * @param string $major
-     * @return Student
+     * @param string $office
+     * @return Teacher
      */
-    public function setMajor($major)
+    public function setOffice($office)
     {
-        $this->major = $major;
+        $this->office = $office;
 
         return $this;
     }
 
     /**
-     * Get major
+     * Get office
      *
      * @return string
      */
-    public function getMajor()
+    public function getOffice()
     {
-        return $this->major;
+        return $this->office;
     }
 
     /**
      * Set identity
      *
      * @param string $identity
-     * @return Student
+     * @return Teacher
      */
     public function setIdentity($identity)
     {
@@ -274,7 +252,7 @@ class Student extends BaseUser
      * Set email
      *
      * @param string $email
-     * @return Student
+     * @return Teacher
      */
     public function setEmail($email)
     {
@@ -297,7 +275,7 @@ class Student extends BaseUser
      * Set mobile
      *
      * @param string $mobile
-     * @return Student
+     * @return Teacher
      */
     public function setMobile($mobile)
     {
@@ -317,29 +295,6 @@ class Student extends BaseUser
     }
 
     /**
-     * Set valid
-     *
-     * @param boolean $valid
-     * @return Student
-     */
-    public function setValid($valid)
-    {
-        $this->valid = $valid;
-
-        return $this;
-    }
-
-    /**
-     * Get valid
-     *
-     * @return boolean
-     */
-    public function getValid()
-    {
-        return $this->valid;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -350,56 +305,10 @@ class Student extends BaseUser
     }
 
     /**
-     * Set mentor
-     *
-     * @param \SSE\ICSSBundle\Entity\Teacher $mentor
-     * @return Student
-     */
-    public function setMentor(\SSE\ICSSBundle\Entity\Teacher $mentor = null)
-    {
-        $this->mentor = $mentor;
-
-        return $this;
-    }
-
-    /**
-     * Get mentor
-     *
-     * @return \SSE\ICSSBundle\Entity\Teacher
-     */
-    public function getMentor()
-    {
-        return $this->mentor;
-    }
-
-    /**
-     * Set project
-     *
-     * @param \SSE\ICSSBundle\Entity\Project $project
-     * @return Student
-     */
-    public function setProject(\SSE\ICSSBundle\Entity\Project $project = null)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return \SSE\ICSSBundle\Entity\Project
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
      * Set gender
      *
      * @param \SSE\ICSSBundle\Entity\Gender $gender
-     * @return Student
+     * @return Teacher
      */
     public function setGender(\SSE\ICSSBundle\Entity\Gender $gender = null)
     {
@@ -418,31 +327,8 @@ class Student extends BaseUser
         return $this->gender;
     }
 
-    /**
-     * Set direction
-     *
-     * @param \SSE\ICSSBundle\Entity\Direction $direction
-     * @return Student
-     */
-    public function setDirection(\SSE\ICSSBundle\Entity\Direction $direction = null)
-    {
-        $this->direction = $direction;
-
-        return $this;
-    }
-
-    /**
-     * Get direction
-     *
-     * @return \SSE\ICSSBundle\Entity\Direction
-     */
-    public function getDirection()
-    {
-        return $this->direction;
-    }
-
     public function __toString()
     {
-        return $this->getName() ?: '学生';
+        return $this->getName() ?: '老师';
     }
 }

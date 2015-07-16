@@ -80,7 +80,6 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
-# add mentor info
     sse.icss.dashboard.mentor:
         class: SSE\ICSSBundle\Admin\MentorAdmin
         tags:
@@ -91,4 +90,3 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
-            - [ setSecurityContext, [@security.context] ]

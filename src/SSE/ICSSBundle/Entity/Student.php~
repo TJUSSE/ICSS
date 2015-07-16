@@ -123,6 +123,15 @@ class Student extends BaseUser
      * })
      */
     private $direction;
+    
+
+//to add the instruction info
+    /**
+     * @var string
+     * @ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Teacher", inversedBy="insStudent")
+     * @ORM\Column(name="name", type="string", length=64, nullable=true)
+     */
+    private $insTeacher;
 
     public function __construct()
     {
@@ -137,6 +146,12 @@ class Student extends BaseUser
      * @param string $cardId
      * @return Student
      */
+
+    public function setInsTeacher($insTeacher)
+    {
+	$this->insTeacher = $insTeacher;
+	return $this;
+    }
 
     public function setCardId($cardId)
     {
