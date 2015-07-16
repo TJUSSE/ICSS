@@ -2,6 +2,7 @@ recruit_compnay: 招聘企业
 recruit_info: 招聘信息
 company_class: 企业领域
 intern_type: 实习性质
+recruit_type: 招聘信息类型
 archive_type: 档案类别
 param_project: 学历
 param_direction: 方向
@@ -13,6 +14,7 @@ user_info: 内置用户
 
 Company List: 企业列表
 Recruit List: 招聘信息列表
+Recruit Type List: 招聘信息类型列表
 Company Class List: 企业领域列表
 Intern Type List: 实习性质列表
 Archive Type List: 档案类别列表
@@ -25,6 +27,7 @@ User List: 用户列表
 Recruit Delete: 删除招聘信息
 Company Delete: 删除企业
 Company Class Delete: 删除企业领域
+Recruit Type Delete: 删除招聘信息类型
 Intern Type Delete: 删除实习性质
 Archive Type Delete: 删除档案类别
 Project Delete: 删除学历

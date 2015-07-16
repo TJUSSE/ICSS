@@ -151,5 +151,4 @@ class StudentAdmin extends Admin
     {
         $object->setRoles("ROLE_STUDENT");
     }
-
 }

@@ -18,6 +18,42 @@ class RecruitAdmin extends Admin
             ->add('company', 'sonata_type_model', ['label' => '企业', 'btn_add' => false])
             ->add('ended', 'date', ['label' => '申请结束时间'])
             ->add('applylimit', 'text', ['label' => '申请人数上限（-1 为不限）', 'required' => false])
+            ->add(
+                'types',
+                'sonata_type_model',
+                [
+                    'required' => true,
+                    'label' => '类别',
+                    'multiple' => true,
+                    'property' => 'name',
+                    'expanded' => false,
+                    'btn_add' => false,
+                ]
+            )
+            ->add(
+                'suitableProjects',
+                'sonata_type_model',
+                [
+                    'required' => true,
+                    'label' => '适用学历',
+                    'multiple' => true,
+                    'property' => 'name',
+                    'expanded' => false,
+                    'btn_add' => false,
+                ]
+            )
+            ->add(
+                'suitableInternTypes',
+                'sonata_type_model',
+                [
+                    'required' => false,
+                    'label' => '适用实习性质',
+                    'multiple' => true,
+                    'property' => 'name',
+                    'expanded' => false,
+                    'btn_add' => false,
+                ]
+            )
             ->add('intro', 'textarea', ['label' => '职位介绍', 'attr' => array('class' => 'ckeditor')])
             ->add('hidden', 'checkbox', ['label' => '隐藏', 'required' => false]);
     }
@@ -37,8 +73,8 @@ class RecruitAdmin extends Admin
         $listMapper
             ->addIdentifier('title', 'text', ['label' => '标题'])
             ->add('company.name', 'text', ['label' => '企业'])
-            ->add('publishAt', 'date', ['label' => '发布时间', 'format'=>'Y-m-d'])
-            ->add('ended', 'date', ['label' => '结束时间', 'format'=>'Y-m-d']);
+            ->add('publishAt', 'date', ['label' => '发布时间', 'format' => 'Y-m-d'])
+            ->add('ended', 'date', ['label' => '结束时间', 'format' => 'Y-m-d']);
     }
 
     // Set default values

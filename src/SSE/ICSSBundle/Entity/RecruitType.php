@@ -61,4 +61,9 @@ class RecruitType
     {
         return $this->id;
     }
+
+    public function __toString()
+    {
+        return $this->name ?: '招聘信息类型';
+    }
 }

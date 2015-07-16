@@ -21,15 +21,18 @@ use Symfony\Component\Security\Core\Util\SecureRandom;
 class RecruitController extends Controller
 {
     /**
-     * @Route("/recruit/pages/{page}",name="SSEICSSBundle_Recruit_list",defaults={"page"=1})
+     * @Route("/recruit/pages/{page}",name="recruitList",defaults={"page"=1})
      */
     public function listAction($page)
     {
         $pageSize = 20;
         $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT r FROM SSEICSSBundle:Recruit ORDER BY r.publishAt DESC');
+        $query = $em->createQuery(
+            'SELECT r.title, r.publishAt, r.id FROM SSEICSSBundle:Recruit r ORDER BY r.publishAt DESC'
+        );
 
         $paginator = new Paginator($query);
+        $paginator->setUseOutputWalkers(false);
 
         $totalRecruits = count($paginator);
         $pagesCount = ceil($totalRecruits / $pageSize);
@@ -40,6 +43,10 @@ class RecruitController extends Controller
             ->setMaxResults($pageSize);
 
         $list = $query->getArrayResult();
+        foreach ($list as &$rec) {
+            $rec['publishAt'] = $rec['publishAt']->format('Y-m-d');
+            $rec['link'] = $this->generateUrl('recruitDetail', ['id' => $rec['id']]);
+        }
 
         $response = new JsonResponse(
             [
@@ -53,7 +60,7 @@ class RecruitController extends Controller
     }
 
     /**
-     * @Route("/recruit/detail/{id}",name="SSEICSSBundle_Recruit_detail")
+     * @Route("/recruit/detail/{id}",name="recruitDetail")
      */
     public function detailAction($id)
     {
@@ -70,10 +77,25 @@ class RecruitController extends Controller
                 'applyLimit' => $recruit->getApplyLimit(),
                 'visitCount' => $recruit->getVisitCount(),
                 'id' => $recruit->getId(),
-                'company' => $recruit->getCompany(),
-                'types' => $recruit->getTypes(),
-                'suitableInternTypes' => $recruit->getSuitableInternTypes(),
-                'suitableProjects' => $recruit->getSuitableProjects(),
+                'company' => [
+                    'name' => $recruit->getCompany()->getName(),
+                    'id' => $recruit->getCompany()->getId(),
+                ],
+                'types' => $recruit->getTypes()->map(
+                    function ($t) {
+                        return $t->getName();
+                    }
+                )->toArray(),
+                'suitableInternTypes' => $recruit->getSuitableInternTypes()->map(
+                    function ($t) {
+                        return $t->getName();
+                    }
+                )->toArray(),
+                'suitableProjects' => $recruit->getSuitableProjects()->map(
+                    function ($p) {
+                        return $p->getName();
+                    }
+                )->toArray(),
             ]
         );
 
