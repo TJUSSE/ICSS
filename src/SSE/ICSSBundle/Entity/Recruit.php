@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="recruit")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Recruit
 {
@@ -18,6 +19,14 @@ class Recruit
      * @ORM\Column(name="publish_at", type="datetime", nullable=true)
      */
     private $publishAt;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->publishAt = new \DateTime();
+    }
 
     /**
      * @var \DateTime
@@ -397,5 +406,39 @@ class Recruit
     public function getSuitableProjects()
     {
         return $this->suitableProjects;
+    }
+
+    /**
+     * @var string
+     */
+    private $title;
+
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Recruit
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle() ?: '招聘信息';
     }
 }

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="recruit_apply")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class RecruitApply
 {
@@ -18,6 +19,14 @@ class RecruitApply
      * @ORM\Column(name="at", type="datetime", nullable=true)
      */
     private $at;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->at = new \DateTime();
+    }
 
     /**
      * @var string
@@ -85,7 +94,6 @@ class RecruitApply
      * })
      */
     private $internType;
-
 
 
     /**
@@ -277,6 +285,7 @@ class RecruitApply
     {
         return $this->student;
     }
+
     /**
      * @return InternType
      */

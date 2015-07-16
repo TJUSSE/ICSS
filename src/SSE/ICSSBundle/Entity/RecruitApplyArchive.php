@@ -10,7 +10,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="recruit_apply_archive")
  * @ORM\Entity
- * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks()
  */
 class RecruitApplyArchive
 {
@@ -20,6 +20,14 @@ class RecruitApplyArchive
      * @ORM\Column(name="at", type="datetime", nullable=true)
      */
     private $at;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->at = new \DateTime();
+    }
 
     /**
      * @var string

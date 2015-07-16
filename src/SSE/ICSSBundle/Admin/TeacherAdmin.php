@@ -47,4 +47,10 @@ class TeacherAdmin extends Admin
             ->add('officename', 'text')
             ->add('department', 'text', ['label' => 'teacher.department']);
     }
+
+    public function prePersist($object)
+    {
+        $object->setRoles("ROLE_TEACHER");
+    }
+
 }

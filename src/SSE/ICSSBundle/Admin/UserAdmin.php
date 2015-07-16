@@ -22,8 +22,8 @@ class UserAdmin extends Admin
     {
         $formMapper
             ->with('基本信息')
-                ->add('username', 'text', ['label' => 'Name'])
-                ->add('password', 'password', ['label' => 'Password'])
+            ->add('username', 'text', ['label' => 'Name'])
+            ->add('password', 'password', ['label' => 'Password'])
             ->end();
     }
 
@@ -43,23 +43,24 @@ class UserAdmin extends Admin
 
     public function prePersist($object)
     {
-        $object-> setRoles("ROLE_USER");
+        $object->setRoles("ROLE_USER");
         $object->setSalt($this->produceSalt());
-        $password= (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
+        $password = (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
         $object->setPassword($password);
     }
 
     public function preUpdate($object)
     {
         $object->setSalt($this->produceSalt());
-        $password= (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
+        $password = (new PasswordEncoder())->encode($object->getPassword(), $object->getSalt());
         $object->setPassword($password);
     }
 
     protected function produceSalt()
     {
-        $salt= (string) rand() . (string) date(DATE_RFC822) . (string) uniqid();
-        $salt= hash('sha256', $salt);
+        $salt = (string)rand().(string)date(DATE_RFC822).(string)uniqid();
+        $salt = hash('sha256', $salt);
+
         return $salt;
     }
 }

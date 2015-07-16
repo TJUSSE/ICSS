@@ -103,7 +103,7 @@ class RecruitController extends Controller
             ->setParameter(1, $recruitId);
 
         $appliesCount = $query->getScalarResult();
-        if ($appliesCount >= $recruit->getApplyLimit()) {
+        if ($appliesCount >= $recruit->getApplyLimit() && $recruit->getApplyLimit() !== -1) {
             return new JsonResponse(
                 [
                     'ok' => false,

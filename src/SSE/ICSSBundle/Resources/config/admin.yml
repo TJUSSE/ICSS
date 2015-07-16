@@ -64,7 +64,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
-    
+
     sse.icss.dashboard.company:
         class: SSE\ICSSBundle\Admin\CompanyAdmin
         tags:
@@ -72,6 +72,17 @@ services:
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\Company
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.recruit:
+        class: SSE\ICSSBundle\Admin\RecruitAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_info" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Recruit
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]

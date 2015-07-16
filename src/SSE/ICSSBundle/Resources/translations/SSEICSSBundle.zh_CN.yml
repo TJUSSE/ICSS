@@ -1,4 +1,5 @@
 recruit_compnay: 招聘企业
+recruit_info: 招聘信息
 company_class: 企业领域
 intern_type: 实习性质
 archive_type: 档案类别
@@ -11,6 +12,7 @@ teacher_info: 教师信息
 user_info: 内置用户
 
 Company List: 企业列表
+Recruit List: 招聘信息列表
 Company Class List: 企业领域列表
 Intern Type List: 实习性质列表
 Archive Type List: 档案类别列表
@@ -22,6 +24,10 @@ User List: 用户列表
 
 Name: 名称
 Password: 密码
+
+Title: 标题
+Company Name: 公司名称
+Hidden: 隐藏
 
 student.cardid: 学号
 people.name: 姓名

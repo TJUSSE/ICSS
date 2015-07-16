@@ -75,6 +75,8 @@ class StudentAdmin extends Admin
         $instance = parent::getNewInstance();
         $instance->setEnabled(true);
         $instance->setValid(true);
+        //$instance->setDirection(1);
+        //$instance->setProject(1);
         $instance->setDepartment('软件学院');
         $instance->setMajor('软件工程');
 
@@ -144,5 +146,9 @@ class StudentAdmin extends Admin
             ->add('direction', 'many_to_one', ['associated_property' => 'name']);
     }
 
+    public function prePersist($object)
+    {
+        $object->setRoles("ROLE_STUDENT");
+    }
 
 }
