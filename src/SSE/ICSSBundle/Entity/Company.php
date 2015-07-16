@@ -220,4 +220,21 @@ class Company
     {
         return $this->getName() ?: '企业';
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->class = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Remove class
+     *
+     * @param \SSE\ICSSBundle\Entity\CompanyClass $class
+     */
+    public function removeClass(\SSE\ICSSBundle\Entity\CompanyClass $class)
+    {
+        $this->class->removeElement($class);
+    }
 }
