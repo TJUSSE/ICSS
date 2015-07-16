@@ -45,7 +45,7 @@ class ArchiveType
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\InternType", mappedBy="availableArchives")
+     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\InternType", mappedBy="availableArchiveTypes")
      */
     private $suitableInternTypes;
 

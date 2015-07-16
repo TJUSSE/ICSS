@@ -9,6 +9,6 @@
         <field name="name" type="string" column="name" length="64" unique="true" nullable="true"/>
         <field name="afterApply" type="boolean" column="after_apply" nullable="true"/>
         <field name="afterApprove" type="boolean" column="after_approve" nullable="true"/>
-        <many-to-many field="suitableInternTypes" mapped-by="availableArchives" target-entity="InternType"/>
+        <many-to-many field="suitableInternTypes" mapped-by="availableArchiveTypes" target-entity="InternType"/>
     </entity>
 </doctrine-mapping>

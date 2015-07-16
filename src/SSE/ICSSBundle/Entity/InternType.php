@@ -70,7 +70,7 @@ class InternType
      */
     public function __construct()
     {
-        $this->availableArchives = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->availableArchiveTypes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->suitableProjects = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
