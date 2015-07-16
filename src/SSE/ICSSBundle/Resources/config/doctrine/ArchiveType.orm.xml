@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="SSE\ICSSBundle\Entity\InternArchive" table="intern_archive">
+    <entity name="SSE\ICSSBundle\Entity\ArchiveType" table="archive_type">
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>

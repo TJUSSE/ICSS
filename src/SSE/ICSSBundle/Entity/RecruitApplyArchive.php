@@ -55,14 +55,14 @@ class RecruitApplyArchive
     private $apply;
 
     /**
-     * @var \SSE\ICSSBundle\Entity\InternArchive
+     * @var \SSE\ICSSBundle\Entity\ArchiveType
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\InternArchive")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="archive_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="archive_type_id", referencedColumnName="id")
      * })
      */
-    private $archive;
+    private $archiveType;
 
 
     /**
@@ -161,26 +161,19 @@ class RecruitApplyArchive
     }
 
     /**
-     * Set archive
-     *
-     * @param \SSE\ICSSBundle\Entity\InternArchive $archive
-     * @return RecruitApplyArchive
+     * @return ArchiveType
      */
-    public function setArchive(\SSE\ICSSBundle\Entity\InternArchive $archive = null)
+    public function getArchiveType()
     {
-        $this->archive = $archive;
-
-        return $this;
+        return $this->archiveType;
     }
 
     /**
-     * Get archive
-     *
-     * @return \SSE\ICSSBundle\Entity\InternArchive
+     * @param ArchiveType $archiveType
      */
-    public function getArchive()
+    public function setArchiveType($archiveType)
     {
-        return $this->archive;
+        $this->archiveType = $archiveType;
     }
 
 

@@ -1,5 +1,6 @@
 recruit_compnay: 招聘企业
 intern_type: 实习性质
+archive_type: 档案类别
 param_project: 学历
 param_direction: 方向
 param_gender: 性别
@@ -10,6 +11,7 @@ user_info: 内置用户
 
 Company List: 企业列表
 Intern Type List: 实习性质列表
+Archive Type List: 档案类别列表
 Project List: 学历列表
 Direction List: 方向列表
 Student List: 学生列表
