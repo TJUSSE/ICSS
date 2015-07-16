@@ -25,8 +25,7 @@
         "sonata-project/doctrine-orm-admin-bundle": "~2.3",
         "nategood/httpful": "0.2.*",
         "ddeboer/data-import-bundle": "0.1.*",
-        "phpoffice/phpexcel": "~1.8",
-        "vich/uploader-bundle": "0.14.*"
+        "phpoffice/phpexcel": "~1.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
