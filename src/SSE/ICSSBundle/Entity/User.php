@@ -42,6 +42,11 @@ class User extends BaseUser
      */
     private $id;
 
+    public function __construct()
+    {
+        $this->setEnabled(true);
+        $this->setRoles('ROLE_USER');
+    }
 
     /**
      * Set username

@@ -70,6 +70,6 @@ class CompanyClass
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->getName() ?: '企业领域';
     }
 }

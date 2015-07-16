@@ -1,11 +1,11 @@
 services:
-    sse.icss.dashboard.company:
-        class: SSE\ICSSBundle\Admin\CompanyAdmin
+    sse.icss.dashboard.companyclass:
+        class: SSE\ICSSBundle\Admin\CompanyClassAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_compnay" }
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "company_class" }
         arguments:
             - ~
-            - SSE\ICSSBundle\Entity\Company
+            - SSE\ICSSBundle\Entity\CompanyClass
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
@@ -61,6 +61,17 @@ services:
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\Gender
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+    
+    sse.icss.dashboard.company:
+        class: SSE\ICSSBundle\Admin\CompanyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_compnay" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Company
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]

@@ -1,4 +1,5 @@
 recruit_compnay: 招聘企业
+company_class: 企业领域
 intern_type: 实习性质
 archive_type: 档案类别
 param_project: 学历
@@ -10,6 +11,7 @@ teacher_info: 教师信息
 user_info: 内置用户
 
 Company List: 企业列表
+Company Class List: 企业领域列表
 Intern Type List: 实习性质列表
 Archive Type List: 档案类别列表
 Project List: 学历列表
@@ -40,4 +42,3 @@ teacher.cardid: 工号
 teacher.department: 行政部门
 Officename: 教研室
 Office: 办公室
-

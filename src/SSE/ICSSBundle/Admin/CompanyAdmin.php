@@ -16,12 +16,19 @@ class CompanyAdmin extends Admin
             ->add('name', 'text', ['label' => '企业名称'])
             ->add('location', 'text', ['label' => '企业位置'])
             ->add('hidden', 'checkbox', ['label' => '隐藏该企业', 'required' => false])
-            ->add('intro', 'textarea', ['label' => '企业介绍','attr' => array('class' => 'ckeditor')]);
-	    //->add('content', null, array('required' => false, 'attr' => array('class' => 'ckeditor')));
-        /*
-            ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
-            ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
-        ;*/
+            ->add(
+                'class',
+                'sonata_type_model',
+                [
+                    'required' => false,
+                    'label' => '领域',
+                    'multiple' => true,
+                    'property' => 'name',
+                    'expanded' => false,
+                    'btn_add' => false,
+                ]
+            )
+            ->add('intro', 'textarea', ['label' => '企业介绍', 'attr' => array('class' => 'ckeditor')]);
     }
 
     // Fields to be shown on filter forms
@@ -36,7 +43,7 @@ class CompanyAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name', 'text', ['label' => '企业名称'])
-            ->add('hidden', 'boolean', ['editable' => true, 'label' => '隐藏'])
-            ->add('location', 'text', ['label' => '企业位置']);
+            ->add('location', 'text', ['label' => '企业位置'])
+            ->add('class', 'many_to_one', ['label' => '类型', 'associated_property' => 'name']);
     }
 }
