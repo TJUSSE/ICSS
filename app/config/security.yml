@@ -144,6 +144,7 @@ security:
         ROLE_STUDENT:
             - ROLE_DASHBOARD_ACCESS
             - ROLE_LOGGED_IN
+            - ROLE_APPLY_RECRUIT
         ROLE_USER:
             - ROLE_DASHBOARD_ACCESS
             - ROLE_LOGGED_IN

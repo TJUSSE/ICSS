@@ -1,15 +1,57 @@
 .list__recruits--item .date
   margin-right: 10px
 
-.apply-button, .apply-button:visited
-  display: inline-block
-  padding: 5px 10px
-  background: #E0E0E0
-  margin-top: 30px
-  color: #222
-  transition: background .2s linear
+.recruit-apply-dialog-wrap
+  display: flex
+  align-items: center
+  justify-content center
+  flex: 1
 
-  &:hover
-    background: $primary
+.apply-button
+  margin-top: 30px
+
+.recruit-apply-dialog
+  background: #FFF
+  box-shadow: 0 5px 10px rgba(#000, 0.1)
+  padding: 30px
+
+  &.dialog-error
+    border-top: 5px solid #EA594F
+
+  &.dialog-info
+    border-top: 5px solid lighten($primary, 20%)
+
+  .recruit-dialog-content
+    min-width: 600px
+    min-height: 120px
+
+.recruit-apply-view
+  textarea
+    width: 600px
+    height: 130px
+  .flash-notice
+    background: #00a65a
     color: #FFF
-    text-decoration: none
+    padding: 15px
+    margin-bottom: 20px
+    border-radius: 3px
+    
+.recruit-apply-two-column
+  display: flex
+  flex-direction: row
+  flex: 1
+
+  .recruit-apply-view
+    padding-right: 50px
+  
+  .recruit-apply-archives
+    flex: 1
+    
+    table
+      width: 100%
+    
+    td, th
+      padding: 5px
+      text-align: left
+      font-weight: normal
+      border: 1px solid #DDD

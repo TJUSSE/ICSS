@@ -31,7 +31,11 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="apply"><a href="javascript:" class="apply-button">申请该职位</a></div>
+                    {% if app.user %}
+                        <div class="apply"><a href="{{ path('recruitApply', {id: recruit.id}) }}"
+                                              class="apply-button button">{% if applied %}查看申请{% else %}申请该招聘{% endif %}</a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

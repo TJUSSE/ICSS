@@ -17,5 +17,8 @@
         <many-to-one field="student" target-entity="Student">
             <join-column name="student_id" referenced-column-name="id"/>
         </many-to-one>
+        <many-to-one field="internType" target-entity="InternType">
+            <join-column name="internType_id" referenced-column-name="id"/>
+        </many-to-one>
     </entity>
 </doctrine-mapping>

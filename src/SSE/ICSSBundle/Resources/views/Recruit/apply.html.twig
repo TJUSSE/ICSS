@@ -1,0 +1,95 @@
+{% extends 'SSEICSSBundle::dynamic.html.twig' %}
+{% block title %}申请{{ recruit.getTitle()|default('') }}{% endblock %}
+{% block basebodyclass %}{% endblock %}
+{% block body %}
+    {% spaceless %}
+        {% if message is defined %}
+            <div class="recruit-apply-dialog-wrap">
+                <div class="recruit-apply-dialog {% if not ok %}dialog-error{% else %}dialog-info{% endif %}">
+                    <div class="recruit-dialog-content">
+                        <p>{{ message }}</p>
+
+                        <p><a href="javascript:history.back()">返回</a></p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="recruit-apply-two-column">
+                <div class="recruit-apply-view">
+                    {% for flashMessage in app.session.flashbag.get('notice') %}
+                        <div class="flash-notice">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+                    <form action="{{ path('recruitApply', {id: recruit.id}) }}" method="post">
+                        <h2>
+                            申请：<a href="{{ path('recruitDetail', {id: recruit.id}) }}">{{ recruit.getTitle() }}</a>
+                        </h2>
+
+                        <p>将该实习作为：{% if view is defined %}{{ apply.getInternType().getName() }}{% else %}<select
+                                name="internType">
+                        {% for item in suitableInternTypes %}
+                            <option value="{{ item.getId() }}">{{ item.getName() }}</option>
+                        {% endfor %}
+                        </select>{% endif %}</p>
+                        <p>附言：</p>
+
+                        <textarea name="intro" class="text">{{ apply.getDescription()|default('') }}</textarea>
+
+                        <div>
+                            <button type="submit" class="button">{% if view is defined %}更新{% endif %}申请
+                            </button>
+                        </div>
+                    </form>
+                    {% if archiveTypes is defined and archiveTypes.count() > 0 %}
+                        <h2>上传档案</h2>
+                        <form action="{{ path('recruitApply', {id: recruit.id}) }}" method="post"
+                              enctype="multipart/form-data">
+                            <p>选择档案类型：
+                                <select name="archiveTypeId">
+                                    {% for item in archiveTypes %}
+                                        <option value="{{ item.getId() }}">{{ item.getName() }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                            <p>选择文件：
+                                <input name="file" type="file"/>
+                            </p>
+
+                            <div>
+                                <button type="submit" class="button">上传档案</button>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+                <div class="recruit-apply-archives">
+                    <h2>已上传档案</h2>
+                    {% if (archives is not defined) or (archives.count() == 0) %}
+                        没有已上传档案
+                    {% else %}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>上传时间</th>
+                                <th>类型</th>
+                                <th>下载</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for archive in archives %}
+                                <tr>
+                                    <td>{{ archive.at|date('Y-m-d') }}</td>
+                                    <td>{{ archive.getArchiveType().getName() }}</td>
+                                    <td>
+                                        <a href="{{ path('archiveDownload', {name: archive.getArchiveFile() }) }}">下载报告</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

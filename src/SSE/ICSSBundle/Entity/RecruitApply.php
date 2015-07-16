@@ -88,7 +88,7 @@ class RecruitApply
     /**
      * @var \SSE\ICSSBundle\Entity\InternType
      *
-     * @ORM\ManyToOne(targetENtity="SSE\ICSSBundle\Entity\InternType")
+     * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\InternType")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="internType_id", referencedColumnName="id")
      * })
