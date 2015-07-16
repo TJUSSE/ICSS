@@ -62,10 +62,10 @@ class Company
      * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\CompanyClass")
      * @ORM\JoinTable(name="company_with_class",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id", onDelete="CASCADE")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="class_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="class_id", referencedColumnName="id", onDelete="CASCADE")
      *   }
      * )
      */
@@ -91,6 +91,7 @@ class Company
 
         return $this;
     }
+
     /**
      * Set name
      *
@@ -220,6 +221,7 @@ class Company
     {
         return $this->getName() ?: '企业';
     }
+
     /**
      * Constructor
      */

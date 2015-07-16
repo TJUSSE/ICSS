@@ -8,10 +8,10 @@
         </id>
         <field name="visitAt" type="datetime" column="visit_at" nullable="true"/>
         <many-to-one field="recruit" target-entity="Recruit">
-            <join-column name="recruit_id" referenced-column-name="id"/>
+            <join-column name="recruit_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-one field="student" target-entity="Student">
-            <join-column name="student_id" referenced-column-name="id"/>
+            <join-column name="student_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
     </entity>
 </doctrine-mapping>

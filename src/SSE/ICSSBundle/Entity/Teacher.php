@@ -78,17 +78,16 @@ class Teacher extends BaseUser
     private $id;
 
 
-
     /**
      * @var \SSE\ICSSBundle\Entity\Gender
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Gender")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="gender_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $gender;
-   
+
     public function __construct()
     {
         $this->setEnabled(true);

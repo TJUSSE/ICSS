@@ -16,16 +16,16 @@
         <field name="mobile" type="string" column="mobile" length="32" nullable="true"/>
         <field name="valid" type="boolean" column="valid" nullable="true"/>
         <many-to-one field="mentor" target-entity="Teacher">
-            <join-column name="mentor_teacher_id" referenced-column-name="id"/>
+            <join-column name="mentor_teacher_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-one field="project" target-entity="Project">
-            <join-column name="project_id" referenced-column-name="id"/>
+            <join-column name="project_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-one field="gender" target-entity="Gender">
-            <join-column name="gender_id" referenced-column-name="id"/>
+            <join-column name="gender_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-one field="direction" target-entity="Direction">
-            <join-column name="direction_id" referenced-column-name="id"/>
+            <join-column name="direction_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
     </entity>
 </doctrine-mapping>

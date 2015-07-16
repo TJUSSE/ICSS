@@ -89,7 +89,7 @@ class Student extends BaseUser
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Teacher")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="mentor_teacher_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="mentor_teacher_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $mentor;
@@ -99,7 +99,7 @@ class Student extends BaseUser
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Project")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $project;
@@ -109,7 +109,7 @@ class Student extends BaseUser
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Gender")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="gender_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $gender;
@@ -119,7 +119,7 @@ class Student extends BaseUser
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Direction")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="direction_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="direction_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $direction;

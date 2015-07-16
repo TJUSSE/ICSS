@@ -33,7 +33,7 @@ class RecruitVisit
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Recruit")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="recruit_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="recruit_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $recruit;
@@ -43,7 +43,7 @@ class RecruitVisit
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Student")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="student_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $student;

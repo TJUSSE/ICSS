@@ -14,35 +14,35 @@
         <field name="applyLimit" type="integer" column="apply_limit" nullable="true"/>
         <field name="visitCount" type="integer" column="visit_count" nullable="true"/>
         <many-to-one field="company" target-entity="Company">
-            <join-column name="company_id" referenced-column-name="id"/>
+            <join-column name="company_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-many field="types" target-entity="RecruitType">
             <join-table name="recruits_types">
                 <join-columns>
-                    <join-column name="recruit_id" referenced-column-name="id"/>
+                    <join-column name="recruit_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="recruit_type_id" referenced-column-name="id"/>
+                    <join-column name="recruit_type_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
         <many-to-many field="suitableInternTypes" target-entity="InternType">
             <join-table name="recruits_intern_types">
                 <join-columns>
-                    <join-column name="recruit_id" referenced-column-name="id"/>
+                    <join-column name="recruit_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="intern_type_id" referenced-column-name="id"/>
+                    <join-column name="intern_type_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
         <many-to-many field="suitableProjects" target-entity="Project">
             <join-table name="recruits_projects">
                 <join-columns>
-                    <join-column name="recruit_id" referenced-column-name="id"/>
+                    <join-column name="recruit_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="project_id" referenced-column-name="id"/>
+                    <join-column name="project_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </inverse-join-columns>
             </join-table>
         </many-to-many>

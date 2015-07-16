@@ -70,7 +70,7 @@ class RecruitApply
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Recruit")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="recruit_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="recruit_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $recruit;
@@ -80,7 +80,7 @@ class RecruitApply
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Student")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="student_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $student;
@@ -90,7 +90,7 @@ class RecruitApply
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\InternType")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="internType_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="internType_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $internType;

@@ -11,20 +11,20 @@
         <many-to-many field="availableArchiveTypes" target-entity="ArchiveType">
             <join-table name="intern_types_archives">
                 <join-columns>
-                    <join-column name="intern_type_id" referenced-column-name="id"/>
+                    <join-column name="intern_type_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="archive_type" referenced-column-name="id"/>
+                    <join-column name="archive_type" referenced-column-name="id" on-delete="CASCADE"/>
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
         <many-to-many field="suitableProjects" inversed-by="availableInternTypes" target-entity="Project">
             <join-table name="intern_types_projects">
                 <join-columns>
-                    <join-column name="intern_type_id" referenced-column-name="id"/>
+                    <join-column name="intern_type_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="project_id" referenced-column-name="id"/>
+                    <join-column name="project_id" referenced-column-name="id" on-delete="CASCADE"/>
                 </inverse-join-columns>
             </join-table>
         </many-to-many>

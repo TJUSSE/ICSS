@@ -77,7 +77,7 @@ class Recruit
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\Company")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="company_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="company_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $company;
@@ -88,10 +88,10 @@ class Recruit
      * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\RecruitType")
      * @ORM\JoinTable(name="recruits_types",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="recruit_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="recruit_id", referencedColumnName="id", onDelete="CASCADE")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="recruit_type_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="recruit_type_id", referencedColumnName="id", onDelete="CASCADE")
      *   }
      * )
      */
@@ -103,10 +103,10 @@ class Recruit
      * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\InternType")
      * @ORM\JoinTable(name="recruits_intern_types",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="recruit_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="recruit_id", referencedColumnName="id", onDelete="CASCADE")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id", onDelete="CASCADE")
      *   }
      * )
      */
@@ -118,10 +118,10 @@ class Recruit
      * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\Project")
      * @ORM\JoinTable(name="recruits_projects",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="recruit_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="recruit_id", referencedColumnName="id", onDelete="CASCADE")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="project_id", referencedColumnName="id", onDelete="CASCADE")
      *   }
      * )
      */

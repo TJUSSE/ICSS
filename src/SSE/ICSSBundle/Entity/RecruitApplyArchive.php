@@ -57,7 +57,7 @@ class RecruitApplyArchive
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\RecruitApply")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="apply_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="apply_id", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $apply;
@@ -67,7 +67,7 @@ class RecruitApplyArchive
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\InternArchive")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="archive_type_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="archive_type_id", referencedColumnName="id", onDelete="SET NULL")
      * })
      */
     private $archiveType;

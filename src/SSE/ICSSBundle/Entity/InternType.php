@@ -41,10 +41,10 @@ class InternType
      * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\ArchiveType", inversedBy="availableInternTypes")
      * @ORM\JoinTable(name="intern_types_archives",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id", onDelete="CASCADE")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="archive_type", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="archive_type", referencedColumnName="id", onDelete="CASCADE")
      *   }
      * )
      */
@@ -56,10 +56,10 @@ class InternType
      * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\Project")
      * @ORM\JoinTable(name="intern_types_projects",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id", onDelete="CASCADE")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="project_id", referencedColumnName="id", onDelete="CASCADE")
      *   }
      * )
      */

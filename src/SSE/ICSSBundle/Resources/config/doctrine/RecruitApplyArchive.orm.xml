@@ -10,10 +10,10 @@
         <field name="archiveName" type="string" column="archive_name" length="128" nullable="true"/>
         <field name="archiveFile" type="string" column="archive_file" length="128" nullable="true"/>
         <many-to-one field="apply" target-entity="RecruitApply">
-            <join-column name="apply_id" referenced-column-name="id"/>
+            <join-column name="apply_id" referenced-column-name="id" on-delete="CASCADE"/>
         </many-to-one>
         <many-to-one field="archiveType" target-entity="ArchiveType">
-            <join-column name="archive_id" referenced-column-name="id"/>
+            <join-column name="archive_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
     </entity>
 </doctrine-mapping>
