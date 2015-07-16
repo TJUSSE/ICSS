@@ -1,12 +1,21 @@
 html, body
   height: 100%
-  color: #EEE
+  margin: 0
 
-body
+h1, h2, h3, h4, h5, body, input, select, button
+  font-weight: normal
+  font-family: "Open Sans", Tahoma, arial, "Hiragino Sans GB", "Hiragino Sans GB W3", STHeiti, "Microsoft YaHei", sans-serif
+
+body, input, select, button
+  font-size: 16px
+
+.body-base-html
   background: url(../img/bg.jpg) center center
   background-attachment: fixed
   background-size: cover
-  font-size: 16px
+
+.body-base-html, .body-simple-html
+  color: #EEE
 
 a, a:visited, a:active
   color: $primary
@@ -28,6 +37,7 @@ a:hover
   line-height: 40px
   font-size: 12px
   opacity: 0.8
+  margin-top: 30px
 
 .page, .container
   width: 1000px
@@ -58,6 +68,7 @@ a:hover
 
 .main
   flex: 1
+  display: flex
 
 .header__icon
   width: 431px

@@ -8,6 +8,7 @@ use SSE\ICSSBundle\Security\User\HybridUserProvider;
 use SSE\ICSSBundle\Security\User\PasswordEncoder;
 use SSE\ICSSBundle\SSO\SSOService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ICSSController extends Controller
 {
@@ -34,9 +35,10 @@ class ICSSController extends Controller
      */
     public function userCheckAction($username, $password)
     {
-        $entityManager= $this->getDoctrine()->getEntityManagers();
-        $entityManager= $entityManager['default'];
-        $check= new HybridUserProvider(new SSOService(null),$entityManager,new PasswordEncoder());
+        $entityManager = $this->getDoctrine()->getEntityManagers();
+        $entityManager = $entityManager['default'];
+        $check = new HybridUserProvider(new SSOService(null), $entityManager, new PasswordEncoder());
+
         return new Response((string)$check->getUsernameForInternalUser($username, $password));
     }
 }

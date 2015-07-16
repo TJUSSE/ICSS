@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>{% block icss_title %}软件学院 · 实习就业服务系统{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/sseicss/css/icss.css') }}">
+        {% endblock %}
+    {% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+{% block bodytag %}{% endblock %}
+</body>
+</html>
