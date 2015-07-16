@@ -38,6 +38,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         dynamic_content: "@sse.icss.dynamic_content_marker"
+    form_themes:
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -150,3 +152,10 @@ sonata_admin:
             - bundles/sseicss/vendor/AdminLTE/js/app.js
             - bundles/sonataadmin/Admin.js
             - bundles/sseicss/js/Admin.js
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        apply_archive:
+            uri_prefix:         %upload_uri_prefix%
+            upload_destination: %upload_destination%

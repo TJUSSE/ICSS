@@ -77,6 +77,18 @@ class RecruitApply
     private $student;
 
     /**
+     * @var \SSE\ICSSBundle\Entity\InternType
+     *
+     * @ORM\ManyToOne(targetENtity="SSE\ICSSBundle\Entity\InternType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="internType_id", referencedColumnName="id")
+     * })
+     */
+    private $internType;
+
+
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -264,5 +276,20 @@ class RecruitApply
     public function getStudent()
     {
         return $this->student;
+    }
+    /**
+     * @return InternType
+     */
+    public function getInternType()
+    {
+        return $this->internType;
+    }
+
+    /**
+     * @param InternType $internType
+     */
+    public function setInternType($internType)
+    {
+        $this->internType = $internType;
     }
 }

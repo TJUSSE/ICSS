@@ -7,7 +7,7 @@
             <generator strategy="IDENTITY"/>
         </id>
         <field name="at" type="datetime" column="at" nullable="true"/>
-        <field name="file" type="string" column="file" length="128" nullable="true"/>
+        <field name="archiveName" type="string" column="archiveName" length="128" nullable="true"/>
         <many-to-one field="apply" target-entity="RecruitApply">
             <join-column name="apply_id" referenced-column-name="id"/>
         </many-to-one>
