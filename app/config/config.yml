@@ -39,6 +39,7 @@ twig:
     globals:
         dynamic_content: "@sse.icss.dynamic_content_marker"
         recruit_service: "@sse.icss.recruit_service"
+        company_service: "@sse.icss.company_service"
 
 # Assetic Configuration
 assetic:

@@ -20,6 +20,11 @@ services:
         calls:
             - [setEntityManager, [ @doctrine.orm.entity_manager ]]
 
+    sse.icss.company_service:
+        class: SSE\ICSSBundle\DependencyInjection\CompanyService
+        calls:
+            - [setEntityManager, [ @doctrine.orm.entity_manager ]]
+
     sse.icss.authenticator:
         class: SSE\ICSSBundle\Security\User\HybridAuthenticator
         arguments: [ @security.http_utils ]

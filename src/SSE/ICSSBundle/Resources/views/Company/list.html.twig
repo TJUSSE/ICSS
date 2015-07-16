@@ -1,0 +1,28 @@
+{% extends "SSEICSSBundle::dynamic.html.twig" %}
+{% block title %}公司列表 - {{ currentPage }}{% endblock %}
+{% block basebodyclass %}body-company-list{% endblock %}
+{% block body %}
+    <div class="list list__companies list--flex">
+        <h2>公司列表</h2>
+        {% for company in list %}
+            <div class="list__companies--item list--item">
+                <span class="title list--full"><a
+                            href="{{ path('companyDetail', {'id': company.id}) }}">{{ company.name }}</a></span>
+                <span class="fields">
+                    {% if company.class is defined %}
+                        {% for c in company.class %}
+                            <span class="company-field">{{ c.name }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </span>
+            </div>
+        {% endfor %}
+        {% include '@SSEICSS/paging.html.twig' with {
+        currentFilters: {},
+        currentPage: currentPage,
+        paginationPath: 'companyList',
+        lastPage: pagesCount,
+        showAlwaysFirstAndLast: true
+        } only %}
+    </div>
+{% endblock %}
