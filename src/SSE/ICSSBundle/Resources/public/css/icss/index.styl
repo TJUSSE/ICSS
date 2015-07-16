@@ -7,6 +7,8 @@
 .index-row
   display: flex
   flex-direction: row
+  align-items: center
+  justify-content: center
 
 .index__news
   width: 360px
@@ -24,7 +26,21 @@
   font-size: 14px
 
 .index__pad
-  width: 30px
+  flex: 1
 
 .index__recruits
-  flex: 1
+  width: 400px
+
+.index__recruits--item
+  font-size: 13px
+  margin: 10px 0
+
+.index__recruits--more
+  padding-left: 50px
+
+.index__recruits--more a, .index__recruits--more a:visited
+  font-size: 30px
+  color: rgba(#FFF, 0.4)
+  &:hover
+    color: rgba(#FFF, 0.9)
+    text-decoration: none

@@ -38,6 +38,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         dynamic_content: "@sse.icss.dynamic_content_marker"
+        recruit_service: "@sse.icss.recruit_service"
 
 # Assetic Configuration
 assetic:

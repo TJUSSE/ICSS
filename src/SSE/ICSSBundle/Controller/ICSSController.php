@@ -40,15 +40,6 @@ class ICSSController extends Controller
     }
 
     /**
-     * @Route("/hello/{name}")
-     * @Template()
-     */
-    public function helloAction($name)
-    {
-        return array('name' => $name);
-    }
-
-    /**
      * @Route("/user/check/{username}/{password}")
      */
     public function userCheckAction($username, $password)

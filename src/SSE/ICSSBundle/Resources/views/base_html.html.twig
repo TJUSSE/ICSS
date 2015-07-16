@@ -32,11 +32,11 @@
     <div class="nav">
         <div class="page">
             {% spaceless %}
-                <a class="nav__item" data-dynamic href="javascript:">
+                <a class="nav__item" data-dynamic href="{{ path('index') }}" target="_self">
                     <div class="nav__item--text">首页</div>
                     <div class="nav__item--strip"></div>
                 </a>
-                <a class="nav__item" data-dynamic href="javascript:">
+                <a class="nav__item" data-dynamic href="{{ path('recruitList', {page:1}) }}" target="_self">
                     <div class="nav__item--text">招聘信息</div>
                     <div class="nav__item--strip"></div>
                 </a>

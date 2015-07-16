@@ -8,9 +8,9 @@
 
 namespace SSE\ICSSBundle\Controller;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use SSE\ICSSBundle\Entity\RecruitApply;
 use SSE\ICSSBundle\Entity\RecruitApplyArchive;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,42 +21,14 @@ use Symfony\Component\Security\Core\Util\SecureRandom;
 class RecruitController extends Controller
 {
     /**
-     * @Route("/recruit/pages/{page}",name="recruitList",defaults={"page"=1})
+     * @Route("/recruit/list/{page}",name="recruitList",defaults={"page"=1})
+     * @Template()
      */
     public function listAction($page)
     {
-        $pageSize = 20;
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'SELECT r.title, r.publishAt, r.id FROM SSEICSSBundle:Recruit r ORDER BY r.publishAt DESC'
-        );
+        $data = $this->container->get('sse.icss.recruit_service')->listRecruits($page);
 
-        $paginator = new Paginator($query);
-        $paginator->setUseOutputWalkers(false);
-
-        $totalRecruits = count($paginator);
-        $pagesCount = ceil($totalRecruits / $pageSize);
-
-        $paginator
-            ->getQuery()
-            ->setFirstResult($pageSize * ($page - 1))
-            ->setMaxResults($pageSize);
-
-        $list = $query->getArrayResult();
-        foreach ($list as &$rec) {
-            $rec['publishAt'] = $rec['publishAt']->format('Y-m-d');
-            $rec['link'] = $this->generateUrl('recruitDetail', ['id' => $rec['id']]);
-        }
-
-        $response = new JsonResponse(
-            [
-                "totalRecruits" => $totalRecruits,
-                "pagesCount" => $pagesCount,
-                "list" => $list,
-            ]
-        );
-
-        return $response;
+        return $data;
     }
 
     /**

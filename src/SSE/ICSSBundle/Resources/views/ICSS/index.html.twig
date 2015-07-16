@@ -10,7 +10,12 @@
             </div>
             <div class="index__pad"></div>
             <div class="index__recruits">
-
+                {% for recruit in recruit_service.listRecruits(1, 9).list %}
+                    <div class="index__recruits--item"><span class="date">[{{ recruit.publishAt|date("Y-m-d") }}]</span>
+                        <a href="{{ path('recruitDetail', {'id': recruit.id}) }}">{{ recruit.title }}</a></div>
+                {% endfor %}
+            </div>
+            <div class="index__recruits--more"><a href="{{ path('recruitList', {'page': 1}) }}" target="_self">MORE</a>
             </div>
         </div>
     </div>

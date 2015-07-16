@@ -1,0 +1,29 @@
+{% extends "SSEICSSBundle::dynamic.html.twig" %}
+{% block title %}招聘信息 - {{ currentPage }}{% endblock %}
+{% block basebodyclass %}body-recruit-list{% endblock %}
+{% block body %}
+    <div class="list list__recruits">
+        <h2>最新招聘信息</h2>
+        {% for recruit in list %}
+            <div class="list__recruits--item">
+                <span class="date">[{{ recruit.publishAt|date("Y-m-d") }}]</span>
+                <span class="title"><a
+                            href="{{ path('recruitDetail', {'id': recruit.id}) }}">{{ recruit.title }}</a></span>
+                <span class="suit">
+                    {% if recruit.suitableProjects is defined %}
+                        {% for project in recruit.suitableProjects %}
+                            <span class="suit-project">{{ project.name }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </span>
+            </div>
+        {% endfor %}
+        {% include '@SSEICSS/paging.html.twig' with {
+        currentFilters: {},
+        currentPage: currentPage,
+        paginationPath: 'recruitList',
+        lastPage: pagesCount,
+        showAlwaysFirstAndLast: true
+        } only %}
+    </div>
+{% endblock %}
