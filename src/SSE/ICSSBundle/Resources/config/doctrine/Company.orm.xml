@@ -11,5 +11,15 @@
         <field name="updateAt" type="datetime" column="update_at" nullable="true"/>
         <field name="location" type="text" column="location" nullable="true"/>
         <field name="hidden" type="boolean" column="hidden" nullable="true"/>
+        <many-to-many field="class" target-entity="CompanyClass">
+            <join-table name="company_with_class">
+                <join-columns>
+                    <join-column name="company_id" referenced-column-name="id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="class_id" referenced-column-name="id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>
