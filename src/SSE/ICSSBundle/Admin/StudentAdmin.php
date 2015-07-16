@@ -58,6 +58,7 @@ class StudentAdmin extends Admin
             ->add('grade', 'text', ['required' => false])
             ->add('department', 'text', ['required' => false])
             ->add('major', 'text', ['required' => false])
+            ->add('mentor', 'sonata_type_model', ['property' => 'name', 'btn_add' => false])
             ->add('identity', 'text', ['required' => false])
             ->end()
             ->with('联系方式')
