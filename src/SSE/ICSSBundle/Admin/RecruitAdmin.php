@@ -71,6 +71,7 @@ class RecruitAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id', 'text')
             ->addIdentifier('title', 'text', ['label' => '标题'])
             ->add('company.name', 'text', ['label' => '企业'])
             ->add('publishAt', 'date', ['label' => '发布时间', 'format' => 'Y-m-d'])

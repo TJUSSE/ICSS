@@ -42,6 +42,7 @@ class CompanyAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id', 'text')
             ->addIdentifier('name', 'text', ['label' => '企业名称'])
             ->add('location', 'text', ['label' => '企业位置'])
             ->add('class', 'many_to_one', ['label' => '类型', 'associated_property' => 'name']);
