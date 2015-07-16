@@ -17,6 +17,7 @@ Teacher List: 教师列表
 User List: 用户列表
 
 Name: 名称
+Password: 密码
 
 student.cardid: 学号
 people.name: 姓名
@@ -37,6 +38,4 @@ teacher.cardid: 工号
 teacher.department: 行政部门
 Officename: 教研室
 Office: 办公室
-
-user.username: 用户名称
 

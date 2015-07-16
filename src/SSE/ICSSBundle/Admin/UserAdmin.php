@@ -22,8 +22,8 @@ class UserAdmin extends Admin
     {
         $formMapper
             ->with('基本信息')
-                ->add('username', 'text', ['label' => '用户名称'])
-                ->add('password', 'password', ['label' => '用户密码'])
+                ->add('username', 'text', ['label' => 'Name'])
+                ->add('password', 'password', ['label' => 'Password'])
             ->end();
     }
 
@@ -31,14 +31,14 @@ class UserAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('username', null, ['label' => 'user.username']);
+            ->add('username', null, ['label' => 'Name']);
     }
 
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('username', 'text', ['label' => '用户名称']);
+            ->addIdentifier('username', 'text', ['label' => 'Name']);
     }
 
     public function prePersist($object)
