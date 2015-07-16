@@ -41,6 +41,9 @@ twig:
             assets:
                 stylesheets:
                     - bundles/sseicss/css/console.css
+    form_themes:
+        # other form themes
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -99,3 +102,10 @@ sonata_admin:
         layout: SSEICSSBundle:Console:standard_layout.html.twig
     security:
         handler: sonata.admin.security.handler.role
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        apply_archive:
+            uri_prefix:         %upload_uri_prefix%
+            upload_destination: %upload_destination%

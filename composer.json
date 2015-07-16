@@ -24,7 +24,8 @@
         "sonata-project/admin-bundle": "~2.3",
         "sonata-project/doctrine-orm-admin-bundle": "~2.3",
         "stfalcon/tinymce-bundle": "0.3.*",
-        "nategood/httpful": "0.2.*"
+        "nategood/httpful": "0.2.*",
+        "vich/uploader-bundle": "^0.14.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -65,14 +66,6 @@
         "branch-alias": {
             "dev-master": "2.7-dev"
         }
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url":  "https://toran.reimu.io/repo/packagist/"
-        },
-        {
-            "packagist": false
-        }
-    ]
+    }
+    
 }

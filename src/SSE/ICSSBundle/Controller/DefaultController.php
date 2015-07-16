@@ -14,7 +14,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return new Response('<body><h1>It works!</h1></body>');
+        return $this->render('SSEICSSBundle:Default:test.html.twig');
+        //return new Response('<body><h1>It works!</h1></body>');
     }
 
     /**

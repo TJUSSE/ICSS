@@ -21,6 +21,9 @@ class AppKernel extends Kernel
             // our system
             new SSE\ICSSBundle\SSEICSSBundle(),
 
+            //vich\uploader
+            new Vich\UploaderBundle\VichUploaderBundle(),
+
             // sonata-admin
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
