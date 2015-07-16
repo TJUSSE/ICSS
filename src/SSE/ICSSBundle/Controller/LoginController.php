@@ -38,6 +38,21 @@ class LoginController extends Controller
      */
     public function loginDialogResultAction(Request $request)
     {
+        if ($this->getUser() === null) {
+            return new RedirectResponse($this->generateUrl('loginDialog', ['ok' => 'false']));
+        }
+
+        $loginFailed = ($request->query->has('ok') && $request->query->get('ok') !== 'true');
+
+        return ['failed' => $loginFailed];
+    }
+
+    /**
+     * @Route("/login/native/result", name="loginNativeDialogResult")
+     * @Template()
+     */
+    public function loginNativeDialogResultAction(Request $request)
+    {
         $loginFailed = ($request->query->has('ok') && $request->query->get('ok') !== 'true');
 
         return ['failed' => $loginFailed];
@@ -52,7 +67,7 @@ class LoginController extends Controller
             return new RedirectResponse($this->generateUrl('loginNativeDialog', ['ok' => 'false']));
         }
 
-        return new RedirectResponse($this->generateUrl('loginDialogResult', ['ok' => 'true']));
+        return new RedirectResponse($this->generateUrl('loginNativeDialogResult', ['ok' => 'true']));
     }
 
 }
