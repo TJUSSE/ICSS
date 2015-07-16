@@ -1,0 +1,34 @@
+.nav .page
+  text-align: center
+
+.nav__item
+  display: inline-block
+  padding: 10px 0
+  line-height: 30px
+  text-decoration: none
+  color: $primary
+  position: relative
+  width: 150px
+
+.nav__item:hover
+  color: #FFF
+  text-decoration: none
+
+.nav__item--text
+  position: relative
+  z-index: 1
+
+.nav__item--strip
+  position: absolute
+  z-index: 0
+  height: 0
+  left: 0
+  bottom: 0
+  width: 100%
+  background: darken($primary, 50%)
+  opacity: 0
+  transition: height .2s ease-in-out, opacity .2s ease-in-out
+
+.nav__item:hover .nav__item--strip
+  height: 100%
+  opacity: 1

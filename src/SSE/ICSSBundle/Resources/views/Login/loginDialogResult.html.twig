@@ -1,0 +1,10 @@
+{% extends 'SSEICSSBundle::simple.html.twig' %}
+{% block body %}
+    <div class="form--login">
+        {% if not failed %}
+            <script>
+                top.location.reload();
+            </script>
+        {% endif %}
+    </div>
+{% endblock %}

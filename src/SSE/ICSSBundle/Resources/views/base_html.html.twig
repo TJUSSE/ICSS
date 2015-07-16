@@ -1,33 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block icss_title %}软件学院 · 实习就业服务系统{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('bundles/sseicss/css/icss.css') }}">
-</head>
-<body>
-<div class="container">
-    <div class="header"><img class="header__icon" src="{{ asset('bundles/sseicss/img/logo.png') }}"></div>
-    <div class="main">
-        {% block body %}
-
-        {% endblock %}
+{% extends 'SSEICSSBundle::layout.html.twig' %}
+{% block bodyclass %}body-base-html {% block basebodyclass %}{% endblock %}{% endblock %}
+{% block bodytag %}
+    <div class="container">
+        <div class="header clearfix">
+            <div class="float-left">
+                <a href="{{ path('index') }}" target="_self">
+                    <img class="header__icon" src="{{ asset('bundles/sseicss/img/logo.png') }}">
+                </a>
+            </div>
+            <div class="float-right">
+                <div class="header-right">
+                    {% if is_granted('ROLE_LOGGED_IN') %}
+                        {{ app.user.getDisplayName() }}&nbsp;<a href="{{ path('logout') }}">登出</a>
+                    {% else %}
+                        <div class="header-button role-login-button">登录</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="main">{% block body %}{% endblock %}</div>
+        <div class="footer clearfix">
+            <div class="float-left">
+                版权所有 (C) 同济大学软件学院 · <a data-dynamic href="javascript:">开发团队</a> · <a href="javascript:">软件学院网站</a>
+            </div>
+            <div class="float-right">
+                <a class="footer__item" data-dynamic href="javascript:">常见问题</a>
+                <a class="footer__item" data-dynamic href="javascript:">联系我们</a>
+            </div>
+        </div>
     </div>
-</div>
-<div class="nav">
-    <a class="main-nav__item" data-dynamic href="javascript:">首页</a>
-    <a class="main-nav__item" data-dynamic href="javascript:">招聘信息</a>
-    <a class="main-nav__item" data-dynamic href="javascript:">企业列表</a>
-    <a class="main-nav__item" data-dynamic href="javascript:">文件下载</a>
-</div>
-<div class="sub-nav">
-    <div class="sub-nav--left">
-        版权所有 (C) 同济大学软件学院 · <a data-dynamic href="javascript:">开发团队</a> · <a href="javascript:">软件学院网站</a>
+    <div class="nav">
+        <div class="page">
+            {% spaceless %}
+                <a class="nav__item" data-dynamic href="javascript:">
+                    <div class="nav__item--text">首页</div>
+                    <div class="nav__item--strip"></div>
+                </a>
+                <a class="nav__item" data-dynamic href="javascript:">
+                    <div class="nav__item--text">招聘信息</div>
+                    <div class="nav__item--strip"></div>
+                </a>
+                <a class="nav__item" data-dynamic href="javascript:">
+                    <div class="nav__item--text">企业列表</div>
+                    <div class="nav__item--strip"></div>
+                </a>
+                <a class="nav__item" data-dynamic href="javascript:">
+                    <div class="nav__item--text">文件下载</div>
+                    <div class="nav__item--strip"></div>
+                </a>
+            {% endspaceless %}
+        </div>
     </div>
-    <div class="sub-nav--right">
-        <a class="sub-nav__item" data-dynamic href="javascript:">常见问题</a>
-        <a class="sub-nav__item" data-dynamic href="javascript:">联系我们</a>
+    <div class="role-login">
+        <div class="dialog-mask"></div>
+        <div class="dialog-login-sso">
+            <h2>同济大学统一身份验证登录</h2>
+            <iframe src="{{ path('loginDialog') }}" allowtransparency="true" frameborder="0"
+                    class="login-sso-iframe"></iframe>
+        </div>
+        <div class="dialog-login-native">
+            <h2>系统账户登录</h2>
+            <iframe src="{{ path('loginNativeDialog') }}" allowtransparency="true" frameborder="0"
+                    class="login-native-iframe"></iframe>
+        </div>
     </div>
-</div>
-</body>
-</html>
+    <script src="{{ asset('bundles/sseicss/vendor/jQuery/jQuery-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('bundles/sseicss/js/icss.js') }}"></script>
+{% endblock %}

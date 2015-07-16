@@ -18,7 +18,24 @@ class InternTypeAdmin extends Admin
             ->add(
                 'suitableProjects',
                 'sonata_type_model',
-                ['required' => false, 'label' => '适用专业', 'multiple' => true, 'property' => 'name', 'expanded' => true]
+                [
+                    'required' => false,
+                    'label' => '所适用专业',
+                    'multiple' => true,
+                    'property' => 'name',
+                    'expanded' => true,
+                ]
+            )
+            ->add(
+                'availableArchiveTypes',
+                'sonata_type_model',
+                [
+                    'required' => false,
+                    'label' => '可递交的档案类型',
+                    'multiple' => true,
+                    'property' => 'name',
+                    'expanded' => true,
+                ]
             );
     }
 
@@ -34,6 +51,7 @@ class InternTypeAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name', 'text', ['label' => '实习性质'])
-            ->add('suitableProjects', 'many_to_one', ['label' => '适用学历', 'associated_property' => 'name']);
+            ->add('suitableProjects', 'many_to_one', ['label' => '适用学历', 'associated_property' => 'name'])
+            ->add('availableArchiveTypes', 'many_to_one', ['label' => '可递交档案', 'associated_property' => 'name']);
     }
 }

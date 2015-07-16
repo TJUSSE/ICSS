@@ -38,7 +38,7 @@ class InternType
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\InternArchive", inversedBy="availableInternTypes")
+     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\ArchiveType", inversedBy="availableInternTypes")
      * @ORM\JoinTable(name="intern_types_archives",
      *   joinColumns={
      *     @ORM\JoinColumn(name="intern_type_id", referencedColumnName="id")
@@ -48,7 +48,7 @@ class InternType
      *   }
      * )
      */
-    private $availableArchives;
+    private $availableArchiveTypes;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -132,36 +132,36 @@ class InternType
     }
 
     /**
-     * Add availableArchives
+     * Add availableArchiveTypes
      *
-     * @param \SSE\ICSSBundle\Entity\InternArchive $availableArchives
+     * @param \SSE\ICSSBundle\Entity\ArchiveType $availableArchives
      * @return InternType
      */
-    public function addAvailableArchive(\SSE\ICSSBundle\Entity\InternArchive $availableArchives)
+    public function addAvailableArchiveType(\SSE\ICSSBundle\Entity\ArchiveType $availableArchives)
     {
-        $this->availableArchives[] = $availableArchives;
+        $this->availableArchiveTypes[] = $availableArchives;
 
         return $this;
     }
 
     /**
-     * Remove availableArchives
+     * Remove availableArchiveTypes
      *
-     * @param \SSE\ICSSBundle\Entity\InternArchive $availableArchives
+     * @param \SSE\ICSSBundle\Entity\ArchiveType $availableArchives
      */
-    public function removeAvailableArchive(\SSE\ICSSBundle\Entity\InternArchive $availableArchives)
+    public function removeAvailableArchiveType(\SSE\ICSSBundle\Entity\ArchiveType $availableArchives)
     {
-        $this->availableArchives->removeElement($availableArchives);
+        $this->availableArchiveTypes->removeElement($availableArchives);
     }
 
     /**
-     * Get availableArchives
+     * Get availableArchiveTypes
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAvailableArchives()
+    public function getAvailableArchiveTypes()
     {
-        return $this->availableArchives;
+        return $this->availableArchiveTypes;
     }
 
     /**

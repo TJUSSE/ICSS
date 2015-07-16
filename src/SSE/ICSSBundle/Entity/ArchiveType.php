@@ -5,12 +5,12 @@ namespace SSE\ICSSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * InternArchive
+ * ArchiveType
  *
- * @ORM\Table(name="intern_archive")
+ * @ORM\Table(name="archive_type")
  * @ORM\Entity
  */
-class InternArchive
+class ArchiveType
 {
     /**
      * @var string
@@ -62,7 +62,7 @@ class InternArchive
      * Set name
      *
      * @param string $name
-     * @return InternArchive
+     * @return ArchiveType
      */
     public function setName($name)
     {
@@ -85,7 +85,7 @@ class InternArchive
      * Set afterApply
      *
      * @param boolean $afterApply
-     * @return InternArchive
+     * @return ArchiveType
      */
     public function setAfterApply($afterApply)
     {
@@ -108,7 +108,7 @@ class InternArchive
      * Set afterApprove
      *
      * @param boolean $afterApprove
-     * @return InternArchive
+     * @return ArchiveType
      */
     public function setAfterApprove($afterApprove)
     {
@@ -141,7 +141,7 @@ class InternArchive
      * Add suitableInternTypes
      *
      * @param \SSE\ICSSBundle\Entity\InternType $suitableInternTypes
-     * @return InternArchive
+     * @return ArchiveType
      */
     public function addSuitableInternType(\SSE\ICSSBundle\Entity\InternType $suitableInternTypes)
     {
@@ -168,5 +168,10 @@ class InternArchive
     public function getSuitableInternTypes()
     {
         return $this->suitableInternTypes;
+    }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '档案类型';
     }
 }

@@ -1,0 +1,36 @@
+{% extends 'SSEICSSBundle::simple.html.twig' %}
+{% block body %}
+    <div class="form--login">
+        <div class="form--login--spinner" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white">
+                <path opacity=".25"
+                      d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/>
+                <path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z">
+                    <animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="0.8s"
+                                      repeatCount="indefinite"/>
+                </path>
+            </svg>
+        </div>
+        <form name="loginForm" class="login--form" method="post"
+              action="http://tjis2.tongji.edu.cn:58080/amserver/UI/Login"
+              target="_self"
+              onsubmit="(function(){ document.querySelector('.form--login--spinner').style.display='block';document.querySelector('.login--form').style.opacity=0.3; })()">
+            <input type="hidden" name="goto" value="{{ url('loginDialogResult', {ok: 'true'}) }}">
+            <input type="hidden" name="gotoOnFail" value="{{ url('loginDialog', {ok: 'false'}) }}">
+            {% if failed %}
+                <div class="form--line login-failed-notice">用户名或密码错误</div>
+            {% endif %}
+            <div>
+                <input type="text" name="Login.Token1" class="textbox username" id="username" placeholder="用户名">
+            </div>
+            <div>
+                <input type="password" name="Login.Token2" class="textbox password" id="password" placeholder="密码">
+            </div>
+            <div class="form--line">
+                <button type="submit">登录</button>
+                <a href="javascript:parent.ICSS.Util.hideLogin()">关闭</a>
+                <br><a href="javascript:parent.ICSS.Util.hideLogin();parent.ICSS.Util.showLoginNative()">系统用户登录</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

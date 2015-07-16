@@ -8,6 +8,7 @@
         </id>
         <field name="publishAt" type="datetime" column="publish_at" nullable="true"/>
         <field name="ended" type="datetime" column="ended" nullable="true"/>
+        <field name="title" type="text" column="title" nullable="true"/>
         <field name="intro" type="text" column="intro" nullable="true"/>
         <field name="hidden" type="boolean" column="hidden" nullable="true"/>
         <field name="applyLimit" type="integer" column="apply_limit" nullable="true"/>

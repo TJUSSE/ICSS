@@ -1,11 +1,11 @@
 services:
-    sse.icss.dashboard.company:
-        class: SSE\ICSSBundle\Admin\CompanyAdmin
+    sse.icss.dashboard.companyclass:
+        class: SSE\ICSSBundle\Admin\CompanyClassAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_compnay" }
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "company_class" }
         arguments:
             - ~
-            - SSE\ICSSBundle\Entity\Company
+            - SSE\ICSSBundle\Entity\CompanyClass
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
@@ -13,10 +13,21 @@ services:
     sse.icss.dashboard.interntype:
         class: SSE\ICSSBundle\Admin\InternTypeAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "intern_type" }
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "intern_type" }
         arguments:
             - ~
             - SSE\ICSSBundle\Entity\InternType
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.archivetype:
+        class: SSE\ICSSBundle\Admin\ArchiveTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "param_management", label: "archive_type" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\ArchiveType
             - ~
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
@@ -54,6 +65,28 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
+    sse.icss.dashboard.company:
+        class: SSE\ICSSBundle\Admin\CompanyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_compnay" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Company
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
+    sse.icss.dashboard.recruit:
+        class: SSE\ICSSBundle\Admin\RecruitAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "recruit_management", label: "recruit_info" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\Recruit
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+
     sse.icss.dashboard.student:
         class: SSE\ICSSBundle\Admin\StudentAdmin
         tags:
@@ -80,7 +113,7 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
 
-# add mentor info
+    # add mentor info
     sse.icss.dashboard.mentor:
         class: SSE\ICSSBundle\Admin\MentorAdmin
         tags:
@@ -92,3 +125,15 @@ services:
         calls:
             - [ setTranslationDomain, [SSEICSSBundle]]
             - [ setSecurityContext, [@security.context] ]
+
+    sse.icss.dashboard.user:
+        class: SSE\ICSSBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "user_management", label: "user_info" }
+        arguments:
+            - ~
+            - SSE\ICSSBundle\Entity\User
+            - ~
+        calls:
+            - [ setTranslationDomain, [SSEICSSBundle]]
+

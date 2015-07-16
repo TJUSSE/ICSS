@@ -8,7 +8,7 @@
         </id>
         <field name="name" type="string" column="name" length="64" unique="true" nullable="true"/>
         <field name="approve" type="boolean" column="approve" nullable="true"/>
-        <many-to-many field="availableArchives" target-entity="InternArchive">
+        <many-to-many field="availableArchiveTypes" target-entity="ArchiveType">
             <join-table name="intern_types_archives">
                 <join-columns>
                     <join-column name="intern_type_id" referenced-column-name="id"/>

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="recruit_apply")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class RecruitApply
 {
@@ -18,6 +19,14 @@ class RecruitApply
      * @ORM\Column(name="at", type="datetime", nullable=true)
      */
     private $at;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->at = new \DateTime();
+    }
 
     /**
      * @var string
@@ -75,6 +84,17 @@ class RecruitApply
      * })
      */
     private $student;
+
+    /**
+     * @var \SSE\ICSSBundle\Entity\InternType
+     *
+     * @ORM\ManyToOne(targetENtity="SSE\ICSSBundle\Entity\InternType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="internType_id", referencedColumnName="id")
+     * })
+     */
+    private $internType;
+
 
     /**
      * Constructor
@@ -264,5 +284,21 @@ class RecruitApply
     public function getStudent()
     {
         return $this->student;
+    }
+
+    /**
+     * @return InternType
+     */
+    public function getInternType()
+    {
+        return $this->internType;
+    }
+
+    /**
+     * @param InternType $internType
+     */
+    public function setInternType($internType)
+    {
+        $this->internType = $internType;
     }
 }

@@ -58,6 +58,7 @@ class StudentAdmin extends Admin
             ->add('grade', 'text', ['required' => false])
             ->add('department', 'text', ['required' => false])
             ->add('major', 'text', ['required' => false])
+            ->add('mentor', 'sonata_type_model', ['property' => 'name', 'btn_add' => false])
             ->add('identity', 'text', ['required' => false])
             ->end()
             ->with('联系方式')
@@ -75,6 +76,8 @@ class StudentAdmin extends Admin
         $instance = parent::getNewInstance();
         $instance->setEnabled(true);
         $instance->setValid(true);
+        //$instance->setDirection(1);
+        //$instance->setProject(1);
         $instance->setDepartment('软件学院');
         $instance->setMajor('软件工程');
 
@@ -88,7 +91,7 @@ class StudentAdmin extends Admin
             ->add('name', null, ['label' => 'people.name'])
             ->add('cardId', null, ['label' => 'student.cardid'])
             ->add(
-                'project.name',
+                'project.id',
                 'doctrine_orm_choice',
                 [],
                 'choice',
@@ -110,7 +113,7 @@ class StudentAdmin extends Admin
                 ]
             )
             ->add(
-                'gender.name',
+                'gender.id',
                 'doctrine_orm_choice',
                 [],
                 'choice',
@@ -121,7 +124,7 @@ class StudentAdmin extends Admin
                 ]
             )
             ->add(
-                'direction.name',
+                'direction.id',
                 'doctrine_orm_choice',
                 [],
                 'choice',
@@ -144,5 +147,9 @@ class StudentAdmin extends Admin
             ->add('direction', 'many_to_one', ['associated_property' => 'name']);
     }
 
+    public function prePersist($object)
+    {
+        $object->setRoles("ROLE_STUDENT");
+    }
 
 }

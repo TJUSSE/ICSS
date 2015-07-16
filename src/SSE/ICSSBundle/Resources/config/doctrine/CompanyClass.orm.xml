@@ -2,13 +2,10 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="SSE\ICSSBundle\Entity\InternArchive" table="intern_archive">
+    <entity name="SSE\ICSSBundle\Entity\CompanyClass" table="company_class">
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
         <field name="name" type="string" column="name" length="64" unique="true" nullable="true"/>
-        <field name="afterApply" type="boolean" column="after_apply" nullable="true"/>
-        <field name="afterApprove" type="boolean" column="after_approve" nullable="true"/>
-        <many-to-many field="suitableInternTypes" mapped-by="availableArchives" target-entity="InternType"/>
     </entity>
 </doctrine-mapping>

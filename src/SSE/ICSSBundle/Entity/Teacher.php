@@ -91,6 +91,7 @@ class Teacher extends BaseUser
    
     public function __construct()
     {
+        $this->setEnabled(true);
         $this->setRoles('ROLE_TEACHER');
     }
 

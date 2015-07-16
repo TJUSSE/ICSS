@@ -3,12 +3,14 @@
 namespace SSE\ICSSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * RecruitApplyArchive
  *
  * @ORM\Table(name="recruit_apply_archive")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class RecruitApplyArchive
 {
@@ -20,11 +22,26 @@ class RecruitApplyArchive
     private $at;
 
     /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->at = new \DateTime();
+    }
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="file", type="string", length=128, nullable=true)
+     * @ORM\Column(name="archive_name", type="string", length=128, nullable=true)
      */
-    private $file;
+    private $archiveName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="archive_file", type="string", length=128, nullable=true)
+     */
+    private $archiveFile;
 
     /**
      * @var integer
@@ -46,14 +63,14 @@ class RecruitApplyArchive
     private $apply;
 
     /**
-     * @var \SSE\ICSSBundle\Entity\InternArchive
+     * @var \SSE\ICSSBundle\Entity\ArchiveType
      *
      * @ORM\ManyToOne(targetEntity="SSE\ICSSBundle\Entity\InternArchive")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="archive_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="archive_type_id", referencedColumnName="id")
      * })
      */
-    private $archive;
+    private $archiveType;
 
 
     /**
@@ -80,26 +97,42 @@ class RecruitApplyArchive
     }
 
     /**
-     * Set file
+     * Set archiveName
      *
-     * @param string $file
+     * @param string $archiveName
      * @return RecruitApplyArchive
      */
-    public function setFile($file)
+    public function setArchiveName($archiveName)
     {
-        $this->file = $file;
+        $this->archiveName = $archiveName;
 
         return $this;
     }
 
     /**
-     * Get file
+     * Get archiveName
      *
      * @return string
      */
-    public function getFile()
+    public function getArchiveName()
     {
-        return $this->file;
+        return $this->archiveName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArchiveFile()
+    {
+        return $this->archiveFile;
+    }
+
+    /**
+     * @param string $archiveFile
+     */
+    public function setArchiveFile($archiveFile)
+    {
+        $this->archiveFile = $archiveFile;
     }
 
     /**
@@ -136,25 +169,20 @@ class RecruitApplyArchive
     }
 
     /**
-     * Set archive
-     *
-     * @param \SSE\ICSSBundle\Entity\InternArchive $archive
-     * @return RecruitApplyArchive
+     * @return ArchiveType
      */
-    public function setArchive(\SSE\ICSSBundle\Entity\InternArchive $archive = null)
+    public function getArchiveType()
     {
-        $this->archive = $archive;
-
-        return $this;
+        return $this->archiveType;
     }
 
     /**
-     * Get archive
-     *
-     * @return \SSE\ICSSBundle\Entity\InternArchive
+     * @param ArchiveType $archiveType
      */
-    public function getArchive()
+    public function setArchiveType($archiveType)
     {
-        return $this->archive;
+        $this->archiveType = $archiveType;
     }
+
+
 }

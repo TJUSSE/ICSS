@@ -56,7 +56,41 @@ class Company
      */
     private $id;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="SSE\ICSSBundle\Entity\CompanyClass")
+     * @ORM\JoinTable(name="company_with_class",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="class_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $class;
 
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Add class
+     *
+     * @param \SSE\ICSSBundle\Entity\CompanyClass $class
+     * @return Company
+     */
+    public function addClass(\SSE\ICSSBundle\Entity\CompanyClass $class)
+    {
+        $this->class[] = $class;
+
+        return $this;
+    }
     /**
      * Set name
      *
@@ -185,5 +219,22 @@ class Company
     public function __toString()
     {
         return $this->getName() ?: '企业';
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->class = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Remove class
+     *
+     * @param \SSE\ICSSBundle\Entity\CompanyClass $class
+     */
+    public function removeClass(\SSE\ICSSBundle\Entity\CompanyClass $class)
+    {
+        $this->class->removeElement($class);
     }
 }

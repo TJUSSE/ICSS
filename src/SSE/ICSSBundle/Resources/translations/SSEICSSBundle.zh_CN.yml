@@ -1,20 +1,44 @@
 recruit_compnay: 招聘企业
+recruit_info: 招聘信息
+company_class: 企业领域
 intern_type: 实习性质
+archive_type: 档案类别
 param_project: 学历
 param_direction: 方向
 param_gender: 性别
 
 student_info: 个人信息
 teacher_info: 教师信息
+user_info: 内置用户
 
 Company List: 企业列表
+Recruit List: 招聘信息列表
+Company Class List: 企业领域列表
 Intern Type List: 实习性质列表
+Archive Type List: 档案类别列表
 Project List: 学历列表
 Direction List: 方向列表
 Student List: 学生列表
 Teacher List: 教师列表
+User List: 用户列表
+
+Recruit Delete: 删除招聘信息
+Company Delete: 删除企业
+Company Class Delete: 删除企业领域
+Intern Type Delete: 删除实习性质
+Archive Type Delete: 删除档案类别
+Project Delete: 删除学历
+Direction Delete: 删除方向
+Student Delete: 删除学生
+Teacher Delete: 删除教师
+User Delete: 删除用户
 
 Name: 名称
+Password: 密码
+
+Title: 标题
+Company Name: 公司名称
+Hidden: 隐藏
 
 student.cardid: 学号
 people.name: 姓名
@@ -22,14 +46,15 @@ Gender: 性别
 Grade: 年级
 Department: 学院
 Major: 专业
+Mentor: 指导老师
 Identity: 身份证号
 Email: Email
 Mobile: 手机号
 Project: 学历
 Direction: 方向
-Project Name: 学历
-Gender Name: 性别
-Direction Name: 方向
+Project Id: 学历
+Gender Id: 性别
+Direction Id: 方向
 
 teacher.cardid: 工号
 teacher.department: 行政部门

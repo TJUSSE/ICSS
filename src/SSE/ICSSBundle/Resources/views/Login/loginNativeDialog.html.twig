@@ -1,0 +1,19 @@
+{% extends 'SSEICSSBundle::simple.html.twig' %}
+{% block body %}
+    <div class="form--login">
+        <form name="loginForm" method="post" action="{{ path('loginNativeDialog') }}"
+              target="_self">
+            <div>
+                <input type="text" name="username" class="textbox username" id="username" placeholder="用户名">
+            </div>
+            <div>
+                <input type="password" name="password" class="textbox password" id="password" placeholder="密码">
+            </div>
+            <div class="form--line">
+                <button type="submit">登录</button>
+                <a href="javascript:parent.ICSS.Util.hideLogin()">关闭</a>
+                <br><a href="javascript:parent.ICSS.Util.hideLogin();parent.ICSS.Util.showLoginSSO()">统一用户登录</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
