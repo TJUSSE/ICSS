@@ -37,8 +37,8 @@ class RecruitAdmin extends Admin
         $listMapper
             ->addIdentifier('title', 'text', ['label' => '标题'])
             ->add('company.name', 'text', ['label' => '企业'])
-            ->add('publishAt', 'date', ['label' => '发布时间'])
-            ->add('ended', 'date', ['label' => '结束时间']);
+            ->add('publishAt', 'date', ['label' => '发布时间', 'format'=>'Y-m-d'])
+            ->add('ended', 'date', ['label' => '结束时间', 'format'=>'Y-m-d']);
     }
 
     // Set default values
