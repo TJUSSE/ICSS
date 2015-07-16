@@ -1,34 +1,21 @@
-.nav .page
-  text-align: center
+.nav
+  z-index: 99999
 
-.nav__item
+.nav__item, .nav__item:visited
+  text-align: center
   display: inline-block
-  padding: 10px 0
+  padding: 7px 20px 10px 20px
   line-height: 30px
   text-decoration: none
   color: $primary
   position: relative
-  width: 150px
+  color: #FFF
+  border-top: 3px solid transparent
+  transition: border-color .2s linear, background .2s linear
+  z-index: 1
 
 .nav__item:hover
   color: #FFF
   text-decoration: none
-
-.nav__item--text
-  position: relative
-  z-index: 1
-
-.nav__item--strip
-  position: absolute
-  z-index: 0
-  height: 0
-  left: 0
-  bottom: 0
-  width: 100%
-  background: darken($primary, 50%)
-  opacity: 0
-  transition: height .2s ease-in-out, opacity .2s ease-in-out
-
-.nav__item:hover .nav__item--strip
-  height: 100%
-  opacity: 1
+  border-color: #2FC5FF
+  background: rgba(#000, 0.5)
