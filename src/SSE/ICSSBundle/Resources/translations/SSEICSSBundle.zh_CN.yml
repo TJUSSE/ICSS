@@ -22,6 +22,17 @@ Student List: 学生列表
 Teacher List: 教师列表
 User List: 用户列表
 
+Recruit Delete: 删除招聘信息
+Company Delete: 删除企业
+Company Class Delete: 删除企业领域
+Intern Type Delete: 删除实习性质
+Archive Type Delete: 删除档案类别
+Project Delete: 删除学历
+Direction Delete: 删除方向
+Student Delete: 删除学生
+Teacher Delete: 删除教师
+User Delete: 删除用户
+
 Name: 名称
 Password: 密码
 
