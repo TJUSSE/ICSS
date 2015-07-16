@@ -15,10 +15,10 @@ use SSE\ICSSBundle\Entity\RecruitApply;
 use SSE\ICSSBundle\Entity\RecruitApplyArchive;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Security\Core\Util\SecureRandom;
 
 class RecruitController extends Controller
 {
@@ -140,13 +140,13 @@ class RecruitController extends Controller
                     ];
                 }
 
+                /** @var UploadedFile $uploadFile */
                 $uploadFile = $request->files->get('file');
 
-                // 生成新的文件名
-                $generator = new SecureRandom();
-                $fileName = sha1(uniqid().'_'.$generator->nextBytes(10));
+                // 根据文件内容生成新的文件名
+                $fileName = hash_file('sha1', $uploadFile->getRealPath());
                 $originalFileName = $uploadFile->getClientOriginalName();
-                $file = $uploadFile->move($this->container->getParameter('upload_destination'), $fileName);
+                $uploadFile->move($this->container->getParameter('upload_destination'), $fileName);
 
                 $applyArchive = new RecruitApplyArchive();
 
