@@ -87,10 +87,13 @@ security:
             - ROLE_SSE_ICSS_DASHBOARD_USER_EXPORT
         ROLE_TEACHER:
             - ROLE_DASHBOARD_ACCESS
+            - ROLE_LOGGED_IN
         ROLE_STUDENT:
             - ROLE_DASHBOARD_ACCESS
+            - ROLE_LOGGED_IN
         ROLE_USER:
             - ROLE_DASHBOARD_ACCESS
+            - ROLE_LOGGED_IN
         ROLE_ADMIN:
             - ROLE_DASHBOARD_COMPANY_FULL
             - ROLE_DASHBOARD_DIRECTION_FULL

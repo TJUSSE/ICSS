@@ -38,14 +38,38 @@ class HybridUserProvider implements UserProviderInterface
         $studentRepo = $this->entityManager->getRepository('SSEICSSBundle:Student');
         $student = $studentRepo->findOneBy(['cardId' => $userid]);
         if ($student) {
-            return 's:' . $student->getId();
+            // 是否有缺失字段
+            if ($student->getName() === null || trim($student->getName()) === '' ||
+                $student->getIdentity() === null || trim($student->getIdentity()) === '' ||
+                $student->getGrade() === null || $student->getGrade() < 1000 ||
+                $student->getGender() === null || $student->getGender()->getName() === '-' ||
+                $student->getDepartment() === null || trim($student->getDepartment()) === '' ||
+                $student->getMajor() === null || trim($student->getMajor()) === ''
+            ) {
+                $info = $this->ssoService->getStudentInfo($token);
+                if ($info !== null) {
+                    $student->setName($info['name']);
+                    $student->setIdentity($info['idcard']);
+                    $student->setGrade($info['grade']);
+                    $student->setGender(
+                        $this->entityManager->getRepository('SSEICSSBundle:Gender')->findOneBy(
+                            ['name' => $info['gender']]
+                        )
+                    );
+                    $student->setDepartment($info['department']);
+                    $student->setMajor($info['major']);
+                    $this->entityManager->flush($student);
+                }
+            }
+
+            return 's:'.$student->getId();
         }
 
         // 查询 Teachers
         $teacherRepo = $this->entityManager->getRepository('SSEICSSBundle:Teacher');
         $teacher = $teacherRepo->findOneBy(['cardId' => $userid]);
         if ($teacher) {
-            return 't:' . $teacher->getId();
+            return 't:'.$teacher->getId();
         }
 
         return false;
@@ -71,7 +95,7 @@ class HybridUserProvider implements UserProviderInterface
             return false;
         }
 
-        return 'i:' . $user->getId();
+        return 'i:'.$user->getId();
     }
 
     /**
@@ -88,12 +112,16 @@ class HybridUserProvider implements UserProviderInterface
 
         if ($identifier === 's:') {
             $user = $this->entityManager->getRepository('SSEICSSBundle:Student')->find($id);
-        } else if ($identifier === 't:') {
-            $user = $this->entityManager->getRepository('SSEICSSBundle:Teacher')->find($id);
-        } else if ($identifier === 'i:') {
-            $user = $this->entityManager->getRepository('SSEICSSBundle:User')->find($id);
         } else {
-            throw new UnsupportedUserException();
+            if ($identifier === 't:') {
+                $user = $this->entityManager->getRepository('SSEICSSBundle:Teacher')->find($id);
+            } else {
+                if ($identifier === 'i:') {
+                    $user = $this->entityManager->getRepository('SSEICSSBundle:User')->find($id);
+                } else {
+                    throw new UnsupportedUserException();
+                }
+            }
         }
 
         if ($user) {

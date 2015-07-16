@@ -9,7 +9,13 @@
                 </a>
             </div>
             <div class="float-right">
-                <div class="header-button role-login-button">登录</div>
+                <div class="header-right">
+                    {% if is_granted('ROLE_LOGGED_IN') %}
+                        {{ app.user.getDisplayName() }}&nbsp;<a href="{{ path('logout') }}">登出</a>
+                    {% else %}
+                        <div class="header-button role-login-button">登录</div>
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="main">{% block body %}{% endblock %}</div>
