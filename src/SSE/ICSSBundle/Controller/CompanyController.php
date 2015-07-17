@@ -10,9 +10,7 @@ namespace SSE\ICSSBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SSE\ICSSBundle\Entity\Company;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 //use Sluggable\Fixture\Handler\Company;
 
@@ -40,22 +38,7 @@ class CompanyController extends Controller
         $repository = $em->getRepository("SSEICSSBundle:Company");
         $company = $repository->find($id);
 
-
-        $response = new JsonResponse();
-        $response->setData(
-            array(
-                "company" => $comp = array(
-                    'id' => $company->getId(),
-                    'name' => $company->getName(),
-                    'intro' => $company->getIntro(),
-                    'updateAt' => $company->getUpdateAt(),
-                    'location' => $company->getLocation(),
-                    'hidden' => $company->getHidden(),
-                ),
-            )
-        );
-
-        return $response;
+        return ['company' => $company];
     }
 
 }
