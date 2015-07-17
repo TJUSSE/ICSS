@@ -81,7 +81,7 @@
                                     <td>{{ archive.at|date('Y-m-d') }}</td>
                                     <td>{{ archive.getArchiveType().getName() }}</td>
                                     <td>
-                                        <a href="{{ path('archiveDownload', {name: archive.getArchiveFile() }) }}">下载报告</a>
+                                        <a href="{{ path('archiveDownload', {name: archive.getArchiveFile() }) }}">下载</a>
                                     </td>
                                 </tr>
                             {% endfor %}

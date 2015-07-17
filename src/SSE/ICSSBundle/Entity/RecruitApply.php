@@ -62,6 +62,7 @@ class RecruitApply
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="SSE\ICSSBundle\Entity\RecruitApplyArchive", mappedBy="apply")
+     * @ORM\OrderBy({"at" = "DESC"})
      */
     private $archives;
 
@@ -311,7 +312,7 @@ class RecruitApply
         $submittedArchives = [];
         $this->getArchives()->forAll(
             function ($key, RecruitApplyArchive $archive) use (&$submittedArchives) {
-                $submittedArchives[$archive->getArchiveType()->getId()] = true;
+                $submittedArchives[$archive->getArchiveType()->getId()] = $archive->getArchiveFile();
 
                 return true;
             }
@@ -320,10 +321,16 @@ class RecruitApply
         $result = [];
         $this->getInternType()->getAvailableArchiveTypes()->forAll(
             function ($key, ArchiveType $archiveType) use (&$result, &$submittedArchives) {
-                $result[] = [
+                $rec = [
                     'archiveType' => $archiveType,
                     'submitted' => isset($submittedArchives[$archiveType->getId()]),
                 ];
+
+                if ($rec['submitted']) {
+                    $rec['archiveFile'] = $submittedArchives[$archiveType->getId()];
+                }
+
+                $result[] = $rec;
 
                 return true;
             }

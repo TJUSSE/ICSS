@@ -39,6 +39,6 @@ class RecruitApplyAdmin extends Admin
                 'string',
                 ['template' => 'SSEICSSBundle:Admin:list_uploaded_archives.html.twig', 'label' => '档案状态']
             )
-            ->add('approved', 'boolean');
+            ->add('approved', 'boolean', ['editable' => true]);
     }
 }

@@ -53,6 +53,6 @@ class InternTypeAdmin extends Admin
             ->addIdentifier('name', 'text', ['label' => '实习性质'])
             ->add('suitableProjects', 'many_to_one', ['label' => '适用学历', 'associated_property' => 'name'])
             ->add('availableArchiveTypes', 'many_to_one', ['label' => '可递交档案', 'associated_property' => 'name'])
-            ->add('approve', 'boolean', ['label' => '自动审批通过']);
+            ->add('approve', 'boolean', ['label' => '自动审批通过', 'editable' => true]);
     }
 }

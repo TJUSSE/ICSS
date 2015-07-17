@@ -2,8 +2,15 @@
 {% block field %}
 
     {% for status in object.getArchiveStatus() %}
-        <span class="label {% if status.submitted %}label-success{% else %}label-danger{% endif %}">{{ status.archiveType.getName() }}
-            : {% if status.submitted %}已递交{% else %}未递交{% endif %}</span>
+        {% if status.submitted %}
+            <a href="{{ path('consoleListApplyArchives', {applyid: object.getId()}) }}" target="_blank">
+            <span class="label label-success">{{ status.archiveType.getName() }}
+                : 已递交</span>
+            </a>
+        {% else %}
+            <span class="label label-danger">{{ status.archiveType.getName() }}
+                : 未递交</span>
+        {% endif %}
     {% endfor %}
 
 {% endblock %}

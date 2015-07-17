@@ -1,0 +1,24 @@
+{% extends 'SSEICSSBundle:Console:standard_layout.html.twig' %}
+{% block content %}
+    <div class="box">
+        <div class="box-body no-padding">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr class="sonata-ba-list-field-header">
+                    <th class="sonata-ba-list-field-header-text">档案类型</th>
+                    <th class="sonata-ba-list-field-header-text">上传时间</th>
+                    <th class="sonata-ba-list-field-header-text">下载</th>
+                </thead>
+                <tbody>
+                {% for archive in archives %}
+                    <tr>
+                        <td class="sonata-ba-list-field sonata-ba-list-field-text">{{ archive.getArchiveType().getName() }}</td>
+                        <td class="sonata-ba-list-field sonata-ba-list-field-text">{{ archive.at|date('Y-m-d H:i:s') }}</td>
+                        <td class="sonata-ba-list-field sonata-ba-list-field-text"><a
+                                    href="{{ path('archiveDownload', {name: archive.getArchiveFile() }) }}">下载</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
