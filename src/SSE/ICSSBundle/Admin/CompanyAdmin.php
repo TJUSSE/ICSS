@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class CompanyAdmin extends Admin
 {
-    // Fields to be shown on create/edit forms
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -31,14 +31,14 @@ class CompanyAdmin extends Admin
             ->add('intro', 'textarea', ['label' => '企业介绍', 'attr' => array('class' => 'ckeditor')]);
     }
 
-    // Fields to be shown on filter forms
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
             ->add('name');
     }
 
-    // Fields to be shown on lists
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

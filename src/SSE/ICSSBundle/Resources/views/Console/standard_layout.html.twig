@@ -30,6 +30,12 @@
             {% if admin_pool is defined %}
                 <nav class="navbar navbar-static-top" role="navigation">
                     {% block sonata_top_nav_menu %}
+                        <div class="navbar-collapse pull-left">
+                            <div class="nav navbar-nav">
+                                <li><a href="{{ path('index') }}">实习就业服务系统首页</a></li>
+                                <li><a href="http://sse.tongji.edu.cn">软院网站首页</a></li>
+                            </div>
+                        </div>
                         <div class="navbar-custom-menu">
                             <ul class="nav navbar-nav">
                                 <li><a>{{ app.user.getDisplayName() }}</a></li>

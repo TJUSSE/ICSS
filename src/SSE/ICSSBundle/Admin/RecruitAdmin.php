@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class RecruitAdmin extends Admin
 {
-    // Fields to be shown on create/edit forms
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -58,7 +58,7 @@ class RecruitAdmin extends Admin
             ->add('hidden', 'checkbox', ['label' => '隐藏', 'required' => false]);
     }
 
-    // Fields to be shown on filter forms
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -67,7 +67,7 @@ class RecruitAdmin extends Admin
             ->add('hidden');
     }
 
-    // Fields to be shown on lists
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

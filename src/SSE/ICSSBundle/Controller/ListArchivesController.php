@@ -37,6 +37,8 @@ class ListArchivesController extends Controller
 
         return array(
             'admin_pool' => $admin_pool,
+            'student' => $apply->getStudent(),
+            'recruit' => $apply->getRecruit(),
             'archives' => $apply->getArchives(),
         );
     }

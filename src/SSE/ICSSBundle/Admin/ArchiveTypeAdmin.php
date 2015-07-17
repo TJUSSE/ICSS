@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ArchiveTypeAdmin extends Admin
 {
-    // Fields to be shown on create/edit forms
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -19,14 +19,14 @@ class ArchiveTypeAdmin extends Admin
             ->add('afterapprove', 'checkbox', ['label' => '该档案需要在审批后递交', 'required' => false]);
     }
 
-    // Fields to be shown on filter forms
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
             ->add('name');
     }
 
-    // Fields to be shown on lists
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

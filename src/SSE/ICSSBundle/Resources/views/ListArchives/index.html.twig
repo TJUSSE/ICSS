@@ -1,4 +1,8 @@
 {% extends 'SSEICSSBundle:Console:standard_layout.html.twig' %}
+{% block tab_menu_navbar_header %}
+    <h1>{{ student.getName() }}的{{ recruit.getTitle() }}申请</h1>
+    <a href="javascript:history.back()">返回申请</a>
+{% endblock %}
 {% block content %}
     <div class="box">
         <div class="box-body no-padding">

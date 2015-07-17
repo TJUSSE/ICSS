@@ -3,7 +3,7 @@
 
     {% for status in object.getArchiveStatus() %}
         {% if status.submitted %}
-            <a href="{{ path('consoleListApplyArchives', {applyid: object.getId()}) }}" target="_blank">
+            <a href="{{ path('consoleListApplyArchives', {applyid: object.getId()}) }}" target="_self">
             <span class="label label-success">{{ status.archiveType.getName() }}
                 : 已递交</span>
             </a>

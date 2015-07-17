@@ -45,7 +45,7 @@ class StudentAdmin extends Admin
         $this->genderListBuilder = $builder;
     }
 
-    // Fields to be shown on create/edit forms
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -84,7 +84,7 @@ class StudentAdmin extends Admin
         return $instance;
     }
 
-    // Fields to be shown on filter forms
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -136,7 +136,7 @@ class StudentAdmin extends Admin
             );
     }
 
-    // Fields to be shown on lists
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

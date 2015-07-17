@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class TeacherAdmin extends Admin
 {
-    // Fields to be shown on create/edit forms
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -29,7 +29,7 @@ class TeacherAdmin extends Admin
             ->end();
     }
 
-    // Fields to be shown on filter forms
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -37,7 +37,7 @@ class TeacherAdmin extends Admin
             ->add('cardId', null, ['label' => 'teacher.cardid']);
     }
 
-    // Fields to be shown on lists
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
