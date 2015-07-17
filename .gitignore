@@ -46,3 +46,4 @@ npm-debug.log
 .idea/commandlinetools/
 
 web/upload/*
+!web/upload/.gitkeep
