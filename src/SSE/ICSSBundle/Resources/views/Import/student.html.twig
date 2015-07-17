@@ -2,17 +2,17 @@
     <table>
         <thead>
         <tr>
-            <th colspan="3">Students-Import</th>
+            <th colspan="3">学生信息导入</th>
         </tr>
         </thead>
 
         <tbody>
         <tr>
-            <td>Import File directly:</td>
+            <td>导入源文件</td>
             <td>
                 <form action="{{ path('admin_sse_icss_student_import') }}" method="post" enctype="multipart/form-data" >
                     <input type="file" name="csvFile" /> <br />
-                    <input type="submit" value="Upload" />
+                    <input type="submit" value="上传" />
                 </form>
             </td>
         </tr>
