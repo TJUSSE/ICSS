@@ -1,0 +1,21 @@
+{% block block %}
+    <table>
+        <thead>
+        <tr>
+            <th colspan="3">Students-Import</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>Import File directly:</td>
+            <td>
+                <form action="{{ path('studentsImport') }}" method="post" enctype="multipart/form-data" >
+                    <input type="file" name="csvFile" /> <br />
+                    <input type="submit" value="Upload" />
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
