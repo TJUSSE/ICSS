@@ -7,6 +7,7 @@ archive_type: 档案类别
 param_project: 学历
 param_direction: 方向
 param_gender: 性别
+recruit_applies: 招聘申请
 
 student_info: 个人信息
 teacher_info: 教师信息
@@ -23,6 +24,7 @@ Direction List: 方向列表
 Student List: 学生列表
 Teacher List: 教师列表
 User List: 用户列表
+Recruit Apply List: 招聘申请列表
 
 Recruit Delete: 删除招聘信息
 Company Delete: 删除企业
@@ -35,6 +37,7 @@ Direction Delete: 删除方向
 Student Delete: 删除学生
 Teacher Delete: 删除教师
 User Delete: 删除用户
+Recruit Apply Delete: 删除招聘申请记录
 
 Name: 名称
 Password: 密码
@@ -63,3 +66,10 @@ teacher.cardid: 工号
 teacher.department: 行政部门
 Officename: 教研室
 Office: 办公室
+
+
+Student Name: 学生姓名
+Recruit Title: 招聘
+Intern Type Name: 申请实习性质
+Approved: 已审批
+Description: 附言

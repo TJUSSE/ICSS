@@ -301,4 +301,39 @@ class RecruitApply
     {
         $this->internType = $internType;
     }
+
+    /**
+     * 返回每个档案的递交状态
+     * @return array
+     */
+    public function getArchiveStatus()
+    {
+        $submittedArchives = [];
+        $this->getArchives()->forAll(
+            function ($key, RecruitApplyArchive $archive) use (&$submittedArchives) {
+                $submittedArchives[$archive->getArchiveType()->getId()] = true;
+
+                return true;
+            }
+        );
+
+        $result = [];
+        $this->getInternType()->getAvailableArchiveTypes()->forAll(
+            function ($key, ArchiveType $archiveType) use (&$result, &$submittedArchives) {
+                $result[] = [
+                    'archiveType' => $archiveType,
+                    'submitted' => isset($submittedArchives[$archiveType->getId()]),
+                ];
+
+                return true;
+            }
+        );
+
+        return $result;
+    }
+
+    public function __toString()
+    {
+        return $this->student->getName().' - '.$this->recruit->getTitle();
+    }
 }
