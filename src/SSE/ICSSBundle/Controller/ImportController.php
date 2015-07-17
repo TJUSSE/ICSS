@@ -18,22 +18,20 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * @Route("/import")
+ * @Route("/console/sse/icss/import")
  * @Template()
  */
 class ImportController extends Controller
 {
     /**
-     * @Route("/students",name="studentsImport")
+     * @Route("/student",name="admin_sse_icss_student_import")
      */
-    public function studentsAction(Request $request)
+    public function studentAction(Request $request)
     {
-        $param=$request->request;
-        $fileId=(int)trim($param->get("fileId"));
-
-        $curType=trim($param->get("fileType"));
         $uploadedFile=$request->files->get("csvFile");
 
+        if (!$uploadedFile)
+            return [];
         $import=getcwd()."/Import";
         $fname="input.csv";
         $filename=$import."/".$fname;
